@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solicitar Orçamento | Wall & Design</title>
+  <link rel="stylesheet" href="./css/variables.css"/>
+  <link rel="stylesheet" href="./css/form-enhancements.css"/>
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/solicitar-orcamento.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="./img/logosimples.png" alt="Wall & Design">
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="contatos.html">Contato</a></li>
+        <li class="mobile-only">
+          <a href="solicitar-orcamento.html" class="btn-orcamento active">Solicitar Orçamento</a>
+        </li>
+        <li class="language-switcher mobile-only">
+          <button onclick="trocarIdioma('pt')" aria-label="Português">
+            <img src="./img/brazil-icon-64.png" alt="PT">
+          </button>
+          <button onclick="trocarIdioma('en')" aria-label="English">
+            <img src="./img/united-icon-64.png" alt="EN">
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <div class="btn-language-group desktop-only">
+      <a href="solicitar-orcamento.html" class="btn-orcamento active">Solicitar Orçamento</a>
+      <div class="language-switcher">
+        <button onclick="trocarIdioma('pt')" aria-label="Português">
+          <img src="./img/brazil-icon-64.png" alt="PT">
+        </button>
+        <button onclick="trocarIdioma('en')" aria-label="English">
+          <img src="./img/united-icon-64.png" alt="EN">
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="orcamento-container">
+    <h1>Solicitar Orçamento</h1>
+
+    <!-- CAIXAS DE SUGESTÃO -->
+    <div id="caixas-sugestao" style="display:none; flex-direction:column; gap:22px; width:100%; margin: 32px 0;">
+      <div class="caixa-sugestao">
+        <h3>Gostaria de analisar nossos projetos?</h3>
+        <p>Confira ambientes já entregues, encontre inspirações e solicite orçamento do projeto que mais gostou.</p>
+        <a href="projetos.html" class="btn-hero" style="margin-top:14px;">Ver Projetos</a>
+      </div>
+      <div class="caixa-sugestao">
+        <h3>Já tem um projeto em mente?</h3>
+        <p>Se você já sabe o que deseja, entre em contato conosco! Personalizamos o ambiente do seu jeito.</p>
+        <a href="contatos.html" class="btn-hero" style="margin-top:14px; background: #25d366; color:#fff;">Falar com a Wall & Design</a>
+      </div>
+    </div>
+    
+    <!-- PROJETO SELECIONADO -->
+    <div class="orcamento-projeto" id="orcamentoProjeto">
+      <img id="imagemProjeto" src="./img/placeholder.png" alt="Projeto Selecionado" style="display:none;">
+      <h2 id="nomeProjeto" style="margin-top: 0.7em;">Projeto Selecionado</h2>
+      <!-- Botão de remover projeto -->
+      <button id="btnRemoverProjeto" style="display:none; margin: 12px auto 0 auto; padding: 7px 18px; background:#ffe066; color:#0f2e20; font-weight:bold; border:none; border-radius:9px; box-shadow:0 1.5px 7px #ffe06633; cursor:pointer; font-size: 1rem;">Remover Projeto</button>
+    </div>
+
+    <!-- FORMULÁRIO DE ORÇAMENTO -->
+    <form class="orcamento-form" id="orcamentoForm"
+      action="https://formsubmit.co/ajax/Sales@wallndesign.net" method="POST" autocomplete="on">
+      <input type="hidden" name="_subject" value="Solicitação de Orçamento via Site Wall & Design">
+      <input type="hidden" name="Projeto" id="hiddenProjeto">
+      <input type="hidden" name="Imagem do Projeto" id="hiddenImagemProjeto">
+      <input type="text" name="Nome" id="nome" placeholder="Seu nome" required>
+      <input type="email" name="Email" id="email" placeholder="Seu e-mail" required>
+      <input type="tel" name="Telefone" id="telefone" placeholder="Seu telefone (opcional)">
+      <textarea name="Mensagem" id="mensagem" placeholder="Descreva o que você precisa, ou detalhes do seu ambiente..." rows="4" required></textarea>
+      <button type="submit">Enviar Solicitação por E-mail</button>
+    </form>
+    <div id="orcamento-agradecimento" style="display:none; color:green; font-weight:bold; font-size:1.3em; margin-top:20px;">
+      Obrigado! Sua solicitação foi enviada com sucesso. Em breve entraremos em contato.
+    </div>
+
+    <div class="orcamento-info" style="margin-top:20px;">
+      <p>
+        <span>Dúvidas?</span>
+        <a href="mailto:Sales@wallndesign.net">Sales@wallndesign.net</a>
+        <br>
+        <span style="color:#fff9;">WhatsApp: (321) 989-9078</span>
+      </p>
+      <button id="btnWhatsApp" style="margin-top:12px; padding:10px 22px; background:#25d366; border:none; border-radius:8px; color:#fff; font-weight:bold; cursor:pointer;">
+        Solicitar pelo WhatsApp
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+      <p>&copy; 2025 Wall & Design. Todos os direitos reservados.</p>
+      <p><a href="./sobre.html">Sobre</a> | <a href="contatos.html">Contato</a>
+  </div>
+</footer>
+
+<script>
+  // Troca de idioma
+  function trocarIdioma(lang) {
+    if (lang === "en") window.location.href = "solicitar-orcamento-en.html";
+    else window.location.href = "solicitar-orcamento.html";
+  }
+  window.trocarIdioma = trocarIdioma;
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const nomeProjeto = sessionStorage.getItem('nomeProjeto');
+    const imagemProjeto = sessionStorage.getItem('imagemProjeto');
+    const caixasSugestao = document.getElementById('caixas-sugestao');
+    const orcamentoProjeto = document.getElementById('orcamentoProjeto');
+    const orcamentoForm = document.getElementById('orcamentoForm');
+    const orcamentoInfo = document.querySelector('.orcamento-info');
+    const btnRemoverProjeto = document.getElementById('btnRemoverProjeto');
+    const img = document.getElementById('imagemProjeto');
+    const agradecimento = document.getElementById('orcamento-agradecimento');
+
+    // Fluxo de exibição
+    if (!nomeProjeto) {
+      if (caixasSugestao) caixasSugestao.style.display = "flex";
+      if (orcamentoProjeto) orcamentoProjeto.style.display = "none";
+      if (orcamentoForm) orcamentoForm.style.display = "none";
+      if (orcamentoInfo) orcamentoInfo.style.display = "none";
+    } else {
+      if (caixasSugestao) caixasSugestao.style.display = "none";
+      if (orcamentoProjeto) orcamentoProjeto.style.display = "block";
+      if (orcamentoForm) orcamentoForm.style.display = "flex";
+      if (orcamentoInfo) orcamentoInfo.style.display = "block";
+      document.getElementById('nomeProjeto').textContent = nomeProjeto;
+      if (imagemProjeto) {
+        img.src = imagemProjeto;
+        img.style.display = "block";
+      } else {
+        img.style.display = "none";
+      }
+      if (btnRemoverProjeto) btnRemoverProjeto.style.display = "inline-block";
+    }
+
+    // Ação de remover projeto
+    if (btnRemoverProjeto) {
+      btnRemoverProjeto.onclick = function() {
+        sessionStorage.removeItem('nomeProjeto');
+        sessionStorage.removeItem('imagemProjeto');
+        location.reload();
+      };
+    }
+
+    // FORM SUBMIT AJAX (FormSubmit) com link absoluto no campo imagem
+    if (orcamentoForm) {
+      orcamentoForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('hiddenProjeto').value = sessionStorage.getItem('nomeProjeto') || '';
+
+        // Monta link absoluto da imagem para o e-mail
+        const imagemProjeto = sessionStorage.getItem('imagemProjeto') || '';
+        let urlImagemCompleta = '';
+        if (imagemProjeto) {
+          if (imagemProjeto.startsWith('http')) {
+            urlImagemCompleta = imagemProjeto;
+          } else {
+            const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+            urlImagemCompleta = baseUrl + imagemProjeto.replace(/^\//, '');
+          }
+        }
+        document.getElementById('hiddenImagemProjeto').value = urlImagemCompleta;
+
+        const formData = new FormData(orcamentoForm);
+
+        fetch(orcamentoForm.action, {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            orcamentoForm.reset();
+            orcamentoForm.style.display = "none";
+            agradecimento.style.display = "block";
+          } else {
+            alert('Houve um erro ao enviar. Tente novamente.');
+          }
+        })
+        .catch(error => {
+          alert('Houve um erro ao enviar. Tente novamente.');
+        });
+      });
+    }
+
+    // WhatsApp - botão e link (link absoluto da imagem)
+    document.getElementById('btnWhatsApp').onclick = function() {
+      const nome = document.getElementById('nome').value;
+      const projeto = document.getElementById('nomeProjeto').textContent;
+      const mensagem = document.getElementById('mensagem').value;
+      const imagemProjeto = sessionStorage.getItem('imagemProjeto');
+      let whatsappMsg = `Olá! Tenho interesse no projeto "${projeto}".\n`;
+
+      // Monta URL absoluto para a imagem
+      let urlImagemCompleta = '';
+      if (imagemProjeto) {
+        if (imagemProjeto.startsWith('http')) {
+          urlImagemCompleta = imagemProjeto;
+        } else {
+          const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+          urlImagemCompleta = baseUrl + imagemProjeto.replace(/^\//, '');
+        }
+        whatsappMsg += `Link da imagem: ${urlImagemCompleta}\n`;
+      }
+      whatsappMsg += `Meu nome é ${nome}.`;
+      if (mensagem) whatsappMsg += `\n${mensagem}`;
+
+      const numero = "13219899078";
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(whatsappMsg)}`,'_blank');
+    };
+
+    // ======= MENU RESPONSIVO =======
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav");
+    if (toggle && nav) {
+      toggle.addEventListener("click", function () {
+        nav.classList.toggle("show");
+        toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
+      });
+    }
+  });
+</script>
+</body>
+</html>

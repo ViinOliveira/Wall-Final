@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wall & Design - Custom Furniture with quality and elegance.">
+  <title>Wall & Design</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/form-enhancements.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index-en.html">
+        <img src="./img/logosimples.png" alt="Wall & Design">
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="index-en.html" class="active">Home</a></li>
+        <li><a href="sobre-en.html">About</a></li>
+        <li><a href="projetos-en.html">Projects</a></li>
+        <li><a href="contatos-en.html">Contact</a></li>
+        <!-- Budget button (mobile) -->
+        <li class="mobile-only">
+          <a href="solicitar-orcamento-en.htm" class="btn-orcamento">Request a Quote</a>
+        </li>
+        <!-- Language flags (mobile) -->
+        <li class="language-switcher mobile-only">
+          <button onclick="trocarIdioma('pt')" aria-label="Portuguese">
+            <img src="./img/brazil-icon-64.png" alt="PT">
+          </button>
+          <button onclick="trocarIdioma('en')" aria-label="English">
+            <img src="./img/united-icon-64.png" alt="EN">
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Budget button and flags (desktop) -->
+    <div class="btn-language-group desktop-only">
+      <a href="./solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
+      <div class="language-switcher">
+        <button onclick="trocarIdioma('pt')" aria-label="Portuguese">
+          <img src="./img/brazil-icon-64.png" alt="PT">
+        </button>
+        <button onclick="trocarIdioma('en')" aria-label="English">
+          <img src="./img/united-icon-64.png" alt="EN">
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-background"></div>
+  <div class="hero-content">
+    <h2>Custom Furniture Solutions</h2>
+    <p>We shape your ideas into functional design</p>
+    <a href="./projetos-en.html" class="btn-hero">View Projects</a>
+  </div>
+  <!-- Navigation Arrows -->
+  <button class="hero-arrow hero-arrow-left" aria-label="Previous">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <line x1="19" y1="12" x2="5" y2="12" />
+      <polyline points="12 19 5 12 12 5"/>
+    </svg>
+  </button>
+  <button class="hero-arrow hero-arrow-right" aria-label="Next">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+      <polyline points="12 5 19 12 12 19"/>
+    </svg>
+  </button>
+</section>
+
+<!-- About the Company -->
+<section class="sobre" id="about">
+  <div class="container">
+    <h2>About Wall & Design</h2>
+    <p>Wall & Design specializes in creating high-quality custom furniture, combining innovative design and functionality. With personalized service and cutting-edge technology, we transform each space into something unique.</p>
+    <a href="./sobre-en.html" class="btn-hero">Learn More</a>
+  </div>
+</section>
+
+<!-- Gallery of Environments -->
+<section class="ambientes">
+  <div class="ambiente">
+    <img src="img/escritorio1.jpg" alt="Modern Office">
+    <h3>Corporate Projects</h3>
+  </div>
+  <div class="ambiente">
+    <img src="img/biblioteca.jpg" alt="Custom Library">
+    <h3>Cozy Spaces</h3>
+  </div>
+  <div class="ambiente">
+    <img src="img/escritorio2.jpg" alt="Clean Home Office">
+    <h3>Smart Home Office</h3>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Wall & Design. All rights reserved.</p>
+    <p>
+      <a href="./sobre-en.html">About</a> | 
+      <a href="contatos-en.html">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+    const usuarioLogado = localStorage.getItem("usuarioLogado") === "true";
+    const painelLoginLink = document.getElementById("painelLoginLink");
+    const footerLoginLink = document.getElementById("footerLoginLink");
+    if (usuarioLogado && painelLoginLink) {
+      painelLoginLink.href = "painel.html";
+      painelLoginLink.innerText = "Dashboard";
+      if (footerLoginLink) {
+        footerLoginLink.href = "painel.html";
+        footerLoginLink.innerText = "Dashboard";
+      }
+    } else if (painelLoginLink) {
+      painelLoginLink.href = "login.html";
+      painelLoginLink.innerText = "Login";
+      if (footerLoginLink) {
+        footerLoginLink.href = "login.html";
+        footerLoginLink.innerText = "Login";
+      }
+    }
+
+    function trocarIdioma(lang) {
+      if (lang === "en") window.location.href = "index-en.html";
+      else window.location.href = "index.html";
+    }
+    window.trocarIdioma = trocarIdioma;
+</script>
+
+<!-- MAIN SCRIPT: -->
+<script src="./js/script.js"></script>
+
+</body>
+</html>

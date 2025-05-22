@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects | Wall &amp; Design</title>
+<link href="./css/variables.css" rel="stylesheet"/>
+<link href="./css/form-enhancements.css" rel="stylesheet"/>
+<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/projetos.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Montserrat:wght@600&amp;display=swap" rel="stylesheet"/>
+<!-- Add lightbox CSS for project images -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet"/>
+</head>
+<script>
+  function irParaOrcamento(nomeProjeto, imagemProjeto) {
+    sessionStorage.setItem('nomeProjeto', nomeProjeto);
+    sessionStorage.setItem('imagemProjeto', imagemProjeto);
+    window.location.href = 'solicitar-orcamento.html';
+  }
+</script>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<a href="index-en.html">
+<img alt="Wall &amp; Design" src="./img/logosimples.png"/>
+</a>
+</div>
+<button aria-expanded="false" aria-label="Open menu" class="menu-toggle">☰</button>
+<nav>
+<ul class="menu">
+<li><a href="index-en.html">Home</a></li>
+<li><a href="sobre-en.html">About</a></li>
+<li><a href="projetos-en.html">Projects</a></li>
+<li><a class="active" href="contatos-en.html">Contact</a></li>
+<!-- Quote button (mobile) -->
+<li class="mobile-only">
+<a class="btn-orcamento" href="./solicitar-orcamento-en.html">Request a Quote</a>
+</li>
+<!-- Language switcher (mobile) -->
+<li class="language-switcher mobile-only">
+<button aria-label="Portuguese" onclick="trocarIdioma('pt')">
+<img alt="PT" src="./img/brazil-icon-64.png"/>
+</button>
+<button aria-label="English" onclick="trocarIdioma('en')">
+<img alt="EN" src="./img/united-icon-64.png"/>
+</button>
+</li>
+</ul>
+</nav>
+<!-- Quote button & flags (desktop) -->
+<div class="btn-language-group desktop-only">
+<a class="btn-orcamento" href="./solicitar-orcamento-en.html">Request a Quote</a>
+<div class="language-switcher">
+<button aria-label="Portuguese" onclick="trocarIdioma('pt')">
+<img alt="PT" src="./img/brazil-icon-64.png"/>
+</button>
+<button aria-label="English" onclick="trocarIdioma('en')">
+<img alt="EN" src="./img/united-icon-64.png"/>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main>
+<section class="projetos-hero-central">
+<h1 class="titulo-centralizado">Get to know our projects</h1>
+<p class="subtitulo-centralizado">See some of the environments we have already transformed and choose your favorite!</p>
+</section>
+<div class="projects-controls-simples">
+<div class="search-container">
+<input class="search-input" id="projectSearch" placeholder="Buscar projetos..." type="search"/>
+</div>
+<div class="filter-container">
+<button class="category-filter active" data-category="todos">All</button>
+<button class="category-filter" data-category="bar">Bar</button>
+<button class="category-filter" data-category="banheiro">Bathroom</button>
+<button class="category-filter" data-category="quarto">Bedroom</button>
+<button class="category-filter" data-category="comercial">Business</button>
+<button class="category-filter" data-category="cinema">Cinema</button>
+<button class="category-filter" data-category="closet">Closet</button>
+<button class="category-filter" data-category="cozinha">Kitchen</button>
+<button class="category-filter" data-category="lavanderia">Laundry</button>
+<button class="category-filter" data-category="sala">Living room</button>
+<button class="category-filter" data-category="reuniao">Meeting room</button>
+<button class="category-filter" data-category="escritorio">Office</button>
+<button class="category-filter" data-category="paineis">Panels</button>
+<button class="category-filter" data-category="despensa">Pantry</button>
+<button class="category-filter" data-category="brinquedoteca">Playroom</button>
+<button class="category-filter" data-category="gourmet">Summer Kitchen</button>
+</div>
+</div>
+<div class="paginacao" id="paginacaoProjetos"></div>
+<div class="projetos-lista">
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Moderno" src="img/Bar/download (1).jpeg">
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (1).jpeg')">Request budget</button>
+</div>
+</img></div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Compacto" src="img/Bar/download (2).jpeg">
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (2).jpeg')">Request budget</button>
+</div>
+</img></div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Rústico" src="img/Bar/download (3).jpeg">
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (3).jpeg')">Request budget</button>
+</div>
+</img></div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Gourmet" src="img/Bar/download (4).jpeg">
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (4).jpeg')">Request budget</button>
+</div>
+</img></div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Integrado" src="img/Bar/download (5).jpeg">
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (5).jpeg')">Request budget</button>
+</div>
+</img></div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Industrial" src="img/Bar/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Minimalista" src="img/Bar/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Retrô" src="img/Bar/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar de Apartamento" src="img/Bar/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Externo" src="img/Bar/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Luxo" src="img/Bar/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Amadeirado" src="img/Bar/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar de Parede" src="img/Bar/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Clássico" src="img/Bar/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Industrial" src="img/Bar/download (15).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (15).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar com Adega" src="img/Bar/download (16).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (16).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Contemporâneo" src="img/Bar/download (17).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (17).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Minimalista" src="img/Bar/download (18).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (18).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Residencial Completo" src="img/Bar/download (19).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (19).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar Gourmet" src="img/Bar/download (20).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (20).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar com Iluminação LED" src="img/Bar/download (22).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (22).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="bar">
+<img alt="Bar com Balcão Especial" src="img/Bar/download (23).jpeg"/>
+<div class="projeto-info">
+<h3>Bar</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (23).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Clean" src="img/Bath/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Elegante" src="img/Bath/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Minimalista" src="img/Bath/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Moderno" src="img/Bath/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Luxo Compacto" src="img/Bath/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Spa" src="img/Bath/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Amadeirado" src="img/Bath/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Sofisticado" src="img/Bath/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Elegante" src="img/Bath/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Clássico" src="img/Bath/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Industrial" src="img/Bath/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Minimalista" src="img/Bath/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Luxuoso" src="img/Bath/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Pequeno Otimizado" src="img/Bath/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Natural" src="img/Bath/download (15).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (15).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Integrado" src="img/Bath/download (16).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (16).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Clean" src="img/Bath/download (17).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (17).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Moderno" src="img/Bath/download (18).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (18).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Rústico" src="img/Bath/download (19).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (19).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro com Bancada Dupla" src="img/Bath/download (20).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (20).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="banheiro">
+<img alt="Banheiro Elegante" src="img/Bath/download (21).jpeg"/>
+<div class="projeto-info">
+<h3>Bathroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bathroom', 'img/Bath/download (21).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Planejado Elegante" src="img/Bedroom/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Casal Moderno" src="img/Bedroom/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Infantil Divertido" src="img/Bedroom/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Compacto" src="img/Bedroom/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Minimalista" src="img/Bedroom/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto de Solteiro" src="img/Bedroom/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto com Escritório" src="img/Bedroom/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Retrô" src="img/Bedroom/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Infantil Temático" src="img/Bedroom/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Casal Clean" src="img/Bedroom/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Juvenil Moderno" src="img/Bedroom/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Compacto Masculino" src="img/Bedroom/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Luxuoso" src="img/Bedroom/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto com Closet" src="img/Bedroom/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Colorido Infantil" src="img/Bedroom/download (15).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (15).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Feminino Moderno" src="img/Bedroom/download (16).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (16).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Teen com Bancada" src="img/Bedroom/download (17).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (17).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto com Iluminação LED" src="img/Bedroom/download (18).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (18).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Versátil" src="img/Bedroom/download (19).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (19).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Estilo Escandinavo" src="img/Bedroom/download (20).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (20).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto King Size" src="img/Bedroom/download (21).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (21).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Estilo Industrial" src="img/Bedroom/download (22).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (22).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto Infantil Criativo" src="img/Bedroom/download (23).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (23).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto com Home Office" src="img/Bedroom/download (24).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (24).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="quarto">
+<img alt="Quarto de Hóspedes Elegante" src="img/Bedroom/download (25).jpeg"/>
+<div class="projeto-info">
+<h3>Bedroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (25).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="comercial">
+<img alt="Escritório Moderno" src="img/Business/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Business</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Business', 'img/Business/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="comercial">
+<img alt="Sala de Reunião Integrada" src="img/Business/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Business</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Business', 'img/Business/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="comercial">
+<img alt="Recepção Sofisticada" src="img/Business/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Business</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Business', 'img/Business/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="comercial">
+<img alt="Escritório Colaborativo" src="img/Business/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Business</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Business', 'img/Business/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema Residencial 1" src="img/Cinema/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema Compacto" src="img/Cinema/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema Gourmet" src="img/Cinema/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Home Theater Moderno" src="img/Cinema/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema Retrô" src="img/Cinema/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema com LED" src="img/Cinema/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema Família" src="img/Cinema/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Home Theater Integrado" src="img/Cinema/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema Deluxe" src="img/Cinema/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema Compacto" src="img/Cinema/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cinema">
+<img alt="Cinema Lounge" src="img/Cinema/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Cinema</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Cinema', 'img/Cinema/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Planejado Luxo" src="img/Closet/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Compacto" src="img/Closet/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Feminino" src="img/Closet/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Masculino" src="img/Closet/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Amadeirado" src="img/Closet/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Integrado" src="img/Closet/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Aberto" src="img/Closet/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet com Ilha Central" src="img/Closet/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Minimalista" src="img/Closet/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Luxo Iluminado" src="img/Closet/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Kids" src="img/Closet/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet com Sapateira" src="img/Closet/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Branco Clean" src="img/Closet/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Espelhado" src="img/Closet/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Premium" src="img/Closet/download (15).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (15).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Elegante Integrado" src="img/Closet/download (16).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (16).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Linear Minimalista" src="img/Closet/download (17).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (17).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Clean com Vidro" src="img/Closet/download (18).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (18).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Glamour" src="img/Closet/download (19).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (19).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Curvo" src="img/Closet/download (20).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (20).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Master" src="img/Closet/download (21).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (21).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet com Prateleiras Iluminadas" src="img/Closet/download (22).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (22).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Luxuoso" src="img/Closet/download (23).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (23).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet com Bancada de Maquiagem" src="img/Closet/download (24).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (24).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Home Office" src="img/Closet/download (25).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (25).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Feminino Glam" src="img/Closet/download (26).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (26).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet Industrial" src="img/Closet/download (27).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (27).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="closet">
+<img alt="Closet de Canto" src="img/Closet/download (28).jpeg"/>
+<div class="projeto-info">
+<h3>Closet</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Closet', 'img/Closet/download (28).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Clean" src="img/Kitchen/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Compacta" src="img/Kitchen/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Gourmet" src="img/Kitchen/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Minimalista" src="img/Kitchen/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Clássica" src="img/Kitchen/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Moderna" src="img/Kitchen/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Americana" src="img/Kitchen/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Rústica" src="img/Kitchen/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Integrada" src="img/Kitchen/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Luxo" src="img/Kitchen/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Planejada" src="img/Kitchen/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Elegante" src="img/Kitchen/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Branca" src="img/Kitchen/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Estilo Ilha" src="img/Kitchen/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Funcional" src="img/Kitchen/download (15).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (15).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Linear" src="img/Kitchen/download (16).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (16).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Industrial" src="img/Kitchen/download (17).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (17).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Bancada" src="img/Kitchen/download (18).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (18).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Preta" src="img/Kitchen/download (19).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (19).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Ilha Central" src="img/Kitchen/download (20).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (20).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Estilo Retrô" src="img/Kitchen/download (21).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (21).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Armário Espelhado" src="img/Kitchen/download (22).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (22).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Colorida" src="img/Kitchen/download (23).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (23).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Pequena Otimizada" src="img/Kitchen/download (24).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (24).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Branca Moderna" src="img/Kitchen/download (25).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (25).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Parede de Tijolos" src="img/Kitchen/download (26).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (26).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Escura" src="img/Kitchen/download (27).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (27).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Prateleiras" src="img/Kitchen/download (28).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (28).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Estilo Campo" src="img/Kitchen/download (29).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (29).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Cantinho do Café" src="img/Kitchen/download (30).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (30).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Cooktop Central" src="img/Kitchen/download (31).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (31).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Clean" src="img/Kitchen/download (32).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (32).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Armários Verdes" src="img/Kitchen/download (33).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (33).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Estilo Loft" src="img/Kitchen/download (34).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (34).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Armários Azuis" src="img/Kitchen/download (35).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (35).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Minimalista Moderna" src="img/Kitchen/download (36).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (36).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Integrada à Sala" src="img/Kitchen/download (37).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (37).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Branca Clássica" src="img/Kitchen/download (38).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (38).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Piso de Madeira" src="img/Kitchen/download (39).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (39).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Balcão de Madeira" src="img/Kitchen/download (40).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (40).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Amarela" src="img/Kitchen/download (41).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (41).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Bancada de Granito" src="img/Kitchen/download (42).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (42).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha com Prateleiras Suspensas" src="img/Kitchen/download (43).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (43).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="cozinha">
+<img alt="Cozinha Compacta Moderna" src="img/Kitchen/download (44).jpeg"/>
+<div class="projeto-info">
+<h3>Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Kitchen', 'img/Kitchen/download (44).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Compacta" src="img/Laundry/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Moderna" src="img/Laundry/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Integrada à Cozinha" src="img/Laundry/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia com Bancada Ampla" src="img/Laundry/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Funcional" src="img/Laundry/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Amadeirada" src="img/Laundry/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia com Cores Claras" src="img/Laundry/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Pequena Planejada" src="img/Laundry/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Gourmet" src="img/Laundry/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Clean e Funcional" src="img/Laundry/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia com Nichos" src="img/Laundry/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia com Ilha Central" src="img/Laundry/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Integrada ao Banheiro" src="img/Laundry/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="lavanderia">
+<img alt="Lavanderia Vertical" src="img/Laundry/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Laundry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Laundry', 'img/Laundry/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala de Estar Moderna" src="img/Living/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Aconchegante" src="img/Living/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Minimalista" src="img/Living/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Clássica" src="img/Living/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala com Painel Ripado" src="img/Living/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Integrada à Cozinha" src="img/Living/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Pequena Planejada" src="img/Living/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Clean" src="img/Living/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala com Lareira Moderna" src="img/Living/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Estilo Industrial" src="img/Living/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala com Sofá Modular" src="img/Living/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala com Parede Verde" src="img/Living/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala de Estar Luxuosa" src="img/Living/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala com Home Theater" src="img/Living/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala com Jardim Vertical" src="img/Living/download (15).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (15).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Integrada com Varanda" src="img/Living/download (16).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (16).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala de Estar com Estante" src="img/Living/download (17).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (17).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Jovem e Colorida" src="img/Living/download (18).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (18).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala de Estar Escandinava" src="img/Living/download (19).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (19).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala para Receber Amigos" src="img/Living/download (20).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (20).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala com Iluminação Natural" src="img/Living/download (21).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (21).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Multifuncional" src="img/Living/download (22).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (22).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala Estilo Retrô" src="img/Living/download (23).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (23).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala de Estar Compacta" src="img/Living/download (24).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (24).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala de Estar com Tapete Estampado" src="./img/Living/download (25).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (25).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="sala">
+<img alt="Sala com Estilo Boho" src="./img/Living/download (26).jpeg"/>
+<div class="projeto-info">
+<h3>Living room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Living room', 'img/Living/download (26).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="reuniao">
+<img alt="Sala de Reunião Executiva" src="./img/Meeting Room/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Meeting room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Meeting room', 'img/Meeting Room/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="reuniao">
+<img alt="Sala de Reunião Moderna" src="./img/Meeting Room/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Meeting room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Meeting room', 'img/Meeting Room/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="reuniao">
+<img alt="Sala de Reunião Compacta" src="./img/Meeting Room/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Meeting room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Meeting room', 'img/Meeting Room/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="reuniao">
+<img alt="Sala de Reunião Colaborativa" src="./img/Meeting Room/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Meeting room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Meeting room', 'img/Meeting Room/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="reuniao">
+<img alt="Sala de Reunião Minimalista" src="./img/Meeting Room/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Meeting room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Meeting room', 'img/Meeting Room/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="reuniao">
+<img alt="Sala de Reunião com Painel de Vidro" src="./img/Meeting Room/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Meeting room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Meeting room', 'img/Meeting Room/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="reuniao">
+<img alt="Sala de Reunião com Vista Panorâmica" src="./img/Meeting Room/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Meeting room</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Meeting room', 'img/Meeting Room/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 9" src="img/Office/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 10" src="img/Office/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 11" src="img/Office/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 12" src="img/Office/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 13" src="img/Office/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 14" src="img/Office/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 15" src="img/Office/download (15).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (15).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 16" src="img/Office/download (16).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (16).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 17" src="img/Office/download (17).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (17).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 18" src="img/Office/download (18).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (18).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 19" src="img/Office/download (19).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (19).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 20" src="img/Office/download (20).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (20).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 21" src="img/Office/download (21).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (21).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 22" src="img/Office/download (22).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (22).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 23" src="img/Office/download (23).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (23).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 24" src="img/Office/download (24).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (24).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 25" src="img/Office/download (25).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (25).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 26" src="img/Office/download (26).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (26).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 27" src="img/Office/download (27).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (27).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 28" src="img/Office/download (28).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (28).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 29" src="img/Office/download (29).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (29).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 30" src="img/Office/download (30).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (30).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 31" src="img/Office/download (31).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (31).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="escritorio">
+<img alt="Escritório Moderno 32" src="img/Office/download (32).jpeg"/>
+<div class="projeto-info">
+<h3>Office</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (32).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Ripado 1" src="img/Panels/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Moderno 2" src="img/Panels/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel TV 3" src="img/Panels/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Elegante 4" src="img/Panels/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Retrô 5" src="img/Panels/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Industrial 6" src="img/Panels/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Minimalista 7" src="img/Panels/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel de Madeira 8" src="img/Panels/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Preto Fosco 9" src="img/Panels/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Com Nichos 10" src="img/Panels/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel para Escritório 11" src="img/Panels/download (27).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (27).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Decorativo Colorido 12" src="img/Panels/download (28).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (28).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Geométrico 13" src="img/Panels/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Para Quarto 14" src="img/Panels/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Amadeirado 15" src="img/Panels/download (15).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (15).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Ripado Horizontal 16" src="img/Panels/download (26).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (26).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Ripado Vertical 17" src="img/Panels/download (17).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (17).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Cinza 18" src="img/Panels/download (18).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (18).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Divisória 19" src="img/Panels/download (19).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (19).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Decorativo 20" src="img/Panels/download (20).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (20).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Laca Branca 21" src="img/Panels/download (21).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (21).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Espelhado 22" src="img/Panels/download (22).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (22).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Multifuncional 23" src="img/Panels/download (23).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (23).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel Preto 24" src="img/Panels/download (24).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (24).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="paineis">
+<img alt="Painel de MDF 25" src="img/Panels/download (25).jpeg"/>
+<div class="projeto-info">
+<h3>Panels</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Panels', 'img/Panels/download (25).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Planejada 1" src="img/Pantry/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Compacta 2" src="img/Pantry/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa com Porta de Correr 3" src="img/Pantry/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Estilo Armário 4" src="img/Pantry/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Organizada 5" src="img/Pantry/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Gourmet 6" src="img/Pantry/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Moderna 7" src="img/Pantry/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Grande 8" src="img/Pantry/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Minimalista 9" src="img/Pantry/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa para Apartamento 10" src="img/Pantry/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa com Cestos 11" src="img/Pantry/download (11).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (11).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Branca 12" src="img/Pantry/download (12).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (12).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Estilo Industrial 13" src="img/Pantry/download (13).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (13).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="despensa">
+<img alt="Despensa Oculta 14" src="img/Pantry/download (14).jpeg"/>
+<div class="projeto-info">
+<h3>Pantry</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Pantry', 'img/Pantry/download (14).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="brinquedoteca">
+<img alt="Quarto Gamer 1" src="img/Playroom/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Playroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Playroom', 'img/Playroom/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="brinquedoteca">
+<img alt="Quarto Gamer 2" src="img/Playroom/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Playroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Playroom', 'img/Playroom/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="brinquedoteca">
+<img alt="Quarto Gamer 3" src="img/Playroom/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Playroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Playroom', 'img/Playroom/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="brinquedoteca">
+<img alt="Quarto Gamer 4" src="img/Playroom/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Playroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Playroom', 'img/Playroom/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="brinquedoteca">
+<img alt="Quarto Gamer 5" src="img/Playroom/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Playroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Playroom', 'img/Playroom/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="brinquedoteca">
+<img alt="Quarto Gamer 6" src="img/Playroom/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Playroom</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Playroom', 'img/Playroom/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 1" src="img/Summer Kitchen/download (1).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (1).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 2" src="img/Summer Kitchen/download (2).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (2).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 3" src="img/Summer Kitchen/download (3).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (3).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 4" src="img/Summer Kitchen/download (4).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (4).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 5" src="img/Summer Kitchen/download (5).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (5).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 6" src="img/Summer Kitchen/download (6).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (6).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 7" src="img/Summer Kitchen/download (7).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (7).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 8" src="img/Summer Kitchen/download (8).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (8).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 9" src="img/Summer Kitchen/download (9).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (9).jpeg')">Request budget</button>
+</div>
+</div>
+<div class="projeto-card" data-category="gourmet">
+<img alt="Cozinha Gourmet 10" src="img/Summer Kitchen/download (10).jpeg"/>
+<div class="projeto-info">
+<h3>Summer Kitchen</h3>
+<button class="btn-solicitar" onclick="irParaOrcamento('Summer Kitchen', 'img/Summer Kitchen/download (10).jpeg')">Request budget</button>
+</div>
+</div>
+</div>
+<div class="paginacao" id="paginacaoProjetos"></div>
+<footer class="footer">
+<div class="footer-content">
+<p>© 2025 Wall &amp; Design. All rights reserve
+<p><a href="./sobre.html">Home</a> | <a href="contatos.html">Contact</a>
+</p></div>
+</footer>
+<div class="modal-solicitar" id="modalSolicitar" style="display:none">
+<div class="modal-content">
+<span class="modal-close" onclick="fecharFormulario()">×</span>
+<h2>Request a project</h2>
+<form id="formSolicitar">
+<input id="nomeProjeto" name="nomeProjeto" type="hidden"/>
+<label for="nomeCliente">Name:</label>
+<input id="nomeCliente" name="nomeCliente" required="" type="text">
+<label for="emailCliente">E-mail:</label>
+<input id="emailCliente" name="emailCliente" required="" type="email"/>
+<label for="mensagem">Message:</label>
+<textarea id="mensagem" name="mensagem" placeholder="Me conte sobre o seu ambiente!" rows="3"></textarea>
+<button class="btn-solicitar" type="submit">Submit</button>
+</input></form>
+</div>
+</div>
+<script>
+  // Troca de idioma
+  window.trocarIdioma = function(lang) {
+    if (lang === "en") {
+      location.href = "projetos-en.html";
+    } else {
+      location.href = "projetos.html";
+    }
+  };
+
+  // Modal antigo (compatibilidade)
+  window.abrirFormulario = function(projetoId) {
+    document.getElementById('nomeProjeto').value = projetoId;
+    document.getElementById('modalSolicitar').style.display = 'flex';
+  };
+  window.fecharFormulario = function() {
+    document.getElementById('modalSolicitar').style.display = 'none';
+  };
+  window.onclick = function(e) {
+    var modal = document.getElementById('modalSolicitar');
+    if (e.target === modal) fecharFormulario();
+  };
+  if (document.getElementById('formSolicitar')) {
+    document.getElementById('formSolicitar').onsubmit = function(e) {
+      e.preventDefault();
+      alert("Solicitação enviada com sucesso! Em breve entraremos em contato.");
+      fecharFormulario();
+      this.reset();
+    }
+  }
+
+  // ====== PAGINAÇÃO + FILTRO + BUSCA ======
+  let projetosPorPagina = 12; // Quantos cards por página
+  let paginaAtual = 1;
+  let categoriaAtiva = "todos";
+  let searchTerm = "";
+
+  function scrollPaginacaoInicio() {
+    const paginacao = document.getElementById('paginacaoProjetos');
+    if (paginacao) paginacao.scrollLeft = 0;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Filtro de categoria
+    document.querySelectorAll('.category-filter').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        categoriaAtiva = this.getAttribute('data-category');
+        paginaAtual = 1;
+        atualizarListaProjetosComPaginacao();
+        scrollPaginacaoInicio();
+      });
+    });
+
+    // Busca
+    document.getElementById('projectSearch').addEventListener('input', function() {
+      searchTerm = this.value.toLowerCase().trim();
+      paginaAtual = 1;
+      atualizarListaProjetosComPaginacao();
+      scrollPaginacaoInicio();
+    });
+
+    // Inicializa paginação
+    atualizarListaProjetosComPaginacao();
+    scrollPaginacaoInicio();
+  });
+
+  function atualizarListaProjetosComPaginacao() {
+    let cards = Array.from(document.querySelectorAll('.projeto-card'));
+    let cardsFiltrados = (categoriaAtiva === 'todos')
+      ? cards
+      : cards.filter(card => card.getAttribute('data-category') === categoriaAtiva);
+
+    if (searchTerm) {
+      cardsFiltrados = cardsFiltrados.filter(card => {
+        const nome = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const desc = card.querySelector('.projeto-desc')?.textContent.toLowerCase() || '';
+        return nome.includes(searchTerm) || desc.includes(searchTerm);
+      });
+    }
+
+    const totalPaginas = Math.ceil(cardsFiltrados.length / projetosPorPagina);
+    if (paginaAtual > totalPaginas) paginaAtual = 1;
+    if (paginaAtual < 1) paginaAtual = 1;
+
+    cards.forEach(card => card.style.display = 'none');
+    const inicio = (paginaAtual - 1) * projetosPorPagina;
+    const fim = inicio + projetosPorPagina;
+    cardsFiltrados.slice(inicio, fim).forEach(card => card.style.display = '');
+
+    renderizarPaginacao(totalPaginas);
+  }
+
+  // PAGINAÇÃO dinâmica: 1-6 sempre, se estiver na 6 mostra 7, se na 7 mostra 8, etc.
+  function renderizarPaginacao(totalPaginas) {
+    const paginacao = document.getElementById('paginacaoProjetos');
+    if (!paginacao) return;
+    paginacao.innerHTML = '';
+    if (totalPaginas <= 1) return;
+
+    // Botão anterior
+    if (paginaAtual > 1) {
+      const btnPrev = document.createElement('button');
+      btnPrev.textContent = 'Anterior';
+      btnPrev.onclick = () => {
+        paginaAtual--;
+        atualizarListaProjetosComPaginacao();
+        scrollPaginacaoInicio();
+      };
+      paginacao.appendChild(btnPrev);
+    }
+
+    // Mostra as páginas 1 a 6 sempre
+    let max = Math.min(6, totalPaginas);
+    for (let i = 1; i <= max; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === paginaAtual) btn.classList.add('active');
+      btn.onclick = () => {
+        paginaAtual = i;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btn);
+    }
+
+    // Se estiver na 6, mostra 7; se na 7 mostra 8, etc, até penúltima página
+    let extras = [];
+    let showExtra = false;
+    if (paginaAtual >= 6 && paginaAtual < totalPaginas) {
+      let next = paginaAtual + 1;
+      if (next <= totalPaginas - 1) {
+        extras.push(next);
+      }
+      showExtra = true;
+    }
+
+    // Renderiza extras (p.ex., 7, 8, etc.)
+    extras.forEach(function(i) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === paginaAtual) btn.classList.add('active');
+      btn.onclick = () => {
+        paginaAtual = i;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btn);
+    });
+
+    // ... se ainda faltar páginas até a última
+    let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
+    if (totalPaginas > lastBtnShown + 1) {
+      const ellipsis = document.createElement('span');
+      ellipsis.textContent = '...';
+      ellipsis.style.margin = '0 8px';
+      paginacao.appendChild(ellipsis);
+    }
+
+    // Sempre mostra a última página (se ainda não foi mostrada)
+    if (totalPaginas > max) {
+      const btnLast = document.createElement('button');
+      btnLast.textContent = totalPaginas;
+      if (paginaAtual === totalPaginas) btnLast.classList.add('active');
+      btnLast.onclick = () => {
+        paginaAtual = totalPaginas;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btnLast);
+    }
+
+    // Botão próxima
+    if (paginaAtual < totalPaginas) {
+      const btnNext = document.createElement('button');
+      btnNext.textContent = 'Próxima';
+      btnNext.onclick = () => {
+        paginaAtual++;
+        atualizarListaProjetosComPaginacao();
+        scrollPaginacaoInicio();
+      };
+      paginacao.appendChild(btnNext);
+    }
+  }
+</script>
+<!-- Lightbox JS para galeria de imagens -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.projeto-card').forEach(function(card) {
+    var img = card.querySelector('img');
+    // Verifica se já está dentro de <a>
+    if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
+      var link = document.createElement('a');
+      link.href = img.src;
+      link.setAttribute('data-lightbox', 'projetos');
+      link.setAttribute('data-title', img.alt || '');
+      img.parentElement.insertBefore(link, img);
+      link.appendChild(img);
+    }
+  });
+
+  // Menu hamburguer responsivo
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("show");
+      toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
+    });
+  }
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.projeto-card').forEach(function(card) {
+    var img = card.querySelector('img');
+    // Verifica se já está dentro de <a>
+    if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
+      var link = document.createElement('a');
+      link.href = img.src;
+      link.setAttribute('data-lightbox', 'projetos');
+      link.setAttribute('data-title', img.alt || '');
+      img.parentElement.insertBefore(link, img);
+      link.appendChild(img);
+    }
+  });
+});
+
+</script>
+<script src="./js/projetos.js" type="module"></script>
+</main></body>
+</html>
