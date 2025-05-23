@@ -2086,7 +2086,7 @@
 </div>
 </div>
 <script>
-  // Troca de idioma
+  // ==== Troca de idioma ====
   window.trocarIdioma = function(lang) {
     if (lang === "en") {
       location.href = "projetos-en.html";
@@ -2095,7 +2095,7 @@
     }
   };
 
-  // Modal antigo (compatibilidade)
+  // ==== Modal antigo (compatibilidade) ====
   window.abrirFormulario = function(projetoId) {
     document.getElementById('nomeProjeto').value = projetoId;
     document.getElementById('modalSolicitar').style.display = 'flex';
@@ -2116,8 +2116,8 @@
     }
   }
 
-  // ====== PAGINAÇÃO + FILTRO + BUSCA ======
-  let projetosPorPagina = 12; // Quantos cards por página
+  // ==== Paginação + Filtro + Busca ====
+  let projetosPorPagina = 12;
   let paginaAtual = 1;
   let categoriaAtiva = "todos";
   let searchTerm = "";
@@ -2141,16 +2141,58 @@
     });
 
     // Busca
-    document.getElementById('projectSearch').addEventListener('input', function() {
-      searchTerm = this.value.toLowerCase().trim();
-      paginaAtual = 1;
-      atualizarListaProjetosComPaginacao();
-      scrollPaginacaoInicio();
-    });
+    const searchInput = document.getElementById('projectSearch');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        searchTerm = this.value.toLowerCase().trim();
+        paginaAtual = 1;
+        atualizarListaProjetosComPaginacao();
+        scrollPaginacaoInicio();
+      });
+    }
 
-    // Inicializa paginação
+    // Inicializa lista/paginação
     atualizarListaProjetosComPaginacao();
     scrollPaginacaoInicio();
+
+    // Menu hamburguer responsivo
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav");
+    if (toggle && nav) {
+      toggle.addEventListener("click", function () {
+        nav.classList.toggle("show");
+        toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
+      });
+    }
+
+    // Envolver imagens com <a> para o Lightbox
+    document.querySelectorAll('.projeto-card').forEach(function(card) {
+      var img = card.querySelector('img');
+      if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
+        var link = document.createElement('a');
+        link.href = img.src;
+        link.setAttribute('data-lightbox', 'projetos');
+        link.setAttribute('data-title', img.alt || '');
+        img.parentElement.insertBefore(link, img);
+        link.appendChild(img);
+      }
+    });
+
+    // Botão flutuante no Lightbox (Solicitar Orçamento)
+    const observer = new MutationObserver(() => {
+      const img = document.querySelector('.lb-image');
+      const caption = document.querySelector('.lb-caption');
+      if (img && caption && !caption.querySelector('.btn-lightbox')) {
+        const imgSrc = img.getAttribute('src');
+        const btn = document.createElement('button');
+        btn.className = 'btn-lightbox';
+        btn.textContent = 'Request budget';
+        btn.onclick = () => irParaOrcamento('', imgSrc);
+        caption.innerHTML = '';
+        caption.appendChild(btn);
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
   });
 
   function atualizarListaProjetosComPaginacao() {
@@ -2179,14 +2221,12 @@
     renderizarPaginacao(totalPaginas);
   }
 
-  // PAGINAÇÃO dinâmica: 1-6 sempre, se estiver na 6 mostra 7, se na 7 mostra 8, etc.
   function renderizarPaginacao(totalPaginas) {
     const paginacao = document.getElementById('paginacaoProjetos');
     if (!paginacao) return;
     paginacao.innerHTML = '';
     if (totalPaginas <= 1) return;
 
-    // Botão anterior
     if (paginaAtual > 1) {
       const btnPrev = document.createElement('button');
       btnPrev.textContent = 'Anterior';
@@ -2198,7 +2238,6 @@
       paginacao.appendChild(btnPrev);
     }
 
-    // Mostra as páginas 1 a 6 sempre
     let max = Math.min(6, totalPaginas);
     for (let i = 1; i <= max; i++) {
       const btn = document.createElement('button');
@@ -2211,19 +2250,12 @@
       paginacao.appendChild(btn);
     }
 
-    // Se estiver na 6, mostra 7; se na 7 mostra 8, etc, até penúltima página
     let extras = [];
-    let showExtra = false;
-    if (paginaAtual >= 6 && paginaAtual < totalPaginas) {
-      let next = paginaAtual + 1;
-      if (next <= totalPaginas - 1) {
-        extras.push(next);
-      }
-      showExtra = true;
+    if (paginaAtual >= 6 && paginaAtual < totalPaginas - 1) {
+      extras.push(paginaAtual + 1);
     }
 
-    // Renderiza extras (p.ex., 7, 8, etc.)
-    extras.forEach(function(i) {
+    extras.forEach(i => {
       const btn = document.createElement('button');
       btn.textContent = i;
       if (i === paginaAtual) btn.classList.add('active');
@@ -2234,7 +2266,6 @@
       paginacao.appendChild(btn);
     });
 
-    // ... se ainda faltar páginas até a última
     let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
     if (totalPaginas > lastBtnShown + 1) {
       const ellipsis = document.createElement('span');
@@ -2243,7 +2274,6 @@
       paginacao.appendChild(ellipsis);
     }
 
-    // Sempre mostra a última página (se ainda não foi mostrada)
     if (totalPaginas > max) {
       const btnLast = document.createElement('button');
       btnLast.textContent = totalPaginas;
@@ -2255,7 +2285,6 @@
       paginacao.appendChild(btnLast);
     }
 
-    // Botão próxima
     if (paginaAtual < totalPaginas) {
       const btnNext = document.createElement('button');
       btnNext.textContent = 'Próxima';
@@ -2267,54 +2296,18 @@
       paginacao.appendChild(btnNext);
     }
   }
-</script>
-<!-- Lightbox JS para galeria de imagens -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('.projeto-card').forEach(function(card) {
-    var img = card.querySelector('img');
-    // Verifica se já está dentro de <a>
-    if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
-      var link = document.createElement('a');
-      link.href = img.src;
-      link.setAttribute('data-lightbox', 'projetos');
-      link.setAttribute('data-title', img.alt || '');
-      img.parentElement.insertBefore(link, img);
-      link.appendChild(img);
-    }
-  });
 
-  // Menu hamburguer responsivo
-  const toggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector("nav");
-  if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      nav.classList.toggle("show");
-      toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
-    });
+  // Função para redirecionar ao orçamento (usada no botão flutuante do lightbox)
+  function irParaOrcamento(nomeProjeto, imagemProjeto) {
+    sessionStorage.setItem('nomeProjeto', nomeProjeto);
+    sessionStorage.setItem('imagemProjeto', imagemProjeto);
+    window.location.href = 'solicitar-orcamento-en.html';
   }
-});
 </script>
 
+<!-- Lightbox2 JS para galeria de imagens -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('.projeto-card').forEach(function(card) {
-    var img = card.querySelector('img');
-    // Verifica se já está dentro de <a>
-    if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
-      var link = document.createElement('a');
-      link.href = img.src;
-      link.setAttribute('data-lightbox', 'projetos');
-      link.setAttribute('data-title', img.alt || '');
-      img.parentElement.insertBefore(link, img);
-      link.appendChild(img);
-    }
-  });
-});
 
-</script>
 <script src="./js/projetos.js" type="module"></script>
 </main></body>
 </html>

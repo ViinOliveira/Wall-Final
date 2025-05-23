@@ -3,7 +3,6 @@ body {
   background: #0f2e20;
 }
 
-
 /* ==== TÍTULO CENTRALIZADO ==== */
 .titulo-centralizado {
   font-size: 2.2rem;
@@ -115,333 +114,129 @@ body {
   background: #ffd700;
 }
 
-
 /* ==== LISTAGEM DE PROJETOS ==== */
 .projetos-lista {
   display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   flex-wrap: wrap;
-  gap: 32px 26px;
   justify-content: center;
-  padding-bottom: 44px;
-  justify-items: center;
+  gap: 40px;
+  padding: 50px 20px 80px;
+  max-width: 1100px;
   margin: 0 auto;
-  background: none;
-  border: none;
-  box-shadow: none;
 }
 
 .projeto-card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(6px);
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 12px #ffe06644;
-  border: 1.5px solid #ffe06655;
-  width: 320px;
-  padding: 18px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  width: 320px; /* ou ajuste conforme seu minmax do grid */
+  margin-bottom: 0;
 }
 
 .projeto-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 28px rgba(0,0,0,0.5), 0 0 20px #ffe06688;
-  border-color: #ffe066;
+  transform: scale(1.02);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
 }
 
+/* IMAGEM EM DESTAQUE */
 .projeto-card img {
   width: 100%;
-  height: 190px;
+  height: 400px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
 .projeto-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-.projeto-info {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* ESCONDE TODA A INFOS */
+.projeto-info,
+.projeto-info *,
+.btn-solicitar,
+.projeto-desc,
+.projeto-categoria,
 .projeto-info h3 {
-  color: #ffdf72;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 5px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-  text-align: center;
+  display: none !important;
 }
 
-.projeto-categoria {
-  color: #ffce44;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
-  text-align: center;
+/* LIGHTBOX */
+.lb-data {
+  position: relative;
 }
-
-.projeto-desc {
-  color: #f0eec9;
-  font-size: 1.02rem;
-  margin-bottom: 15px;
-  line-height: 1.4;
-  text-align: center;
-  min-height: 50px;
-}
-
-.btn-solicitar {
-  background: linear-gradient(90deg, #ffe066, #ffb900);
+.btn-lightbox {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 999;
+  padding: 12px 24px;
+  background-color: var(--dourado);
+  color: var(--verde-escuro);
   border: none;
   border-radius: 8px;
-  color: #1b3b22;
-  padding: 10px 20px;
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
-
-.btn-solicitar:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(90deg, #fff199, #ffd644);
-  color: #14321d;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+.btn-lightbox:hover {
+  background-color: var(--dourado-escuro);
 }
-
-/* ========================
-   RESPONSIVO PROJETOS
-======================== */
-
 /* Telas médias (tablets e pequenos desktops) */
 @media (max-width: 900px) {
-  .projetos-lista {
-    gap: 22px 10px;
-    padding: 0 4vw 34px 4vw;
-  }
-  .projeto-card {
-    max-width: 94vw;
+  .projeto-card img {
     width: 100%;
-    min-width: 220px;
-    padding: 14px 2vw 14px 2vw;
-    border-radius: 17px;
+    height: 320px;          /* Imagem bem grande */
+    min-height: 240px;
+    max-height: 420px;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    background: #132c20;
   }
 }
 
 /* Mobile: até 700px */
 @media (max-width: 700px) {
-  body {
-    margin-top: 120px;
-  }
-
-  .titulo-centralizado {
-    font-size: 1.48rem;
-  }
-  .subtitulo-centralizado {
-    font-size: 1.01rem;
-    margin-bottom: 18px;
-  }
-
-  .projects-controls-simples {
-    gap: 10px;
-    max-width: 98vw;
-    padding: 0 2vw;
-  }
-
-  .search-container {
-    max-width: 98vw;
-    padding: 0;
-  }
-
-  .search-input {
-    font-size: 1.04rem;
-    padding: 11px 12px;
-    border-radius: 7px;
-  }
-
-  .filter-container {
-    gap: 6px;
-    padding: 0 1vw;
-  }
-
-  .category-filter {
-    padding: 9px 12px;
-    font-size: 0.95rem;
-    border-radius: 5px;
-  }
-
-  @media (max-width: 700px) {
-  .paginacao {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 0 18px 12px 18px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    max-width: 100vw;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    position: relative;
-  }
-  .paginacao button {
-    min-width: 44px;
-    margin-bottom: 8px;
-    font-size: 1rem;
-    padding: 7px 12px;
-    border-radius: 8px;
-    /* Removemos max-width, ellipsis, overflow */
-    max-width: none;
-    overflow: visible;
-    text-overflow: unset;
-    white-space: nowrap;
-  }
-  /* Só para "Próxima" e "Anterior", se quiser limitar largura */
-  .paginacao button:last-child,
-  .paginacao button:first-child {
-    max-width: 80px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .paginacao::before,
-  .paginacao::after {
-    content: "";
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 22px;
-    z-index: 2;
-    pointer-events: none;
-    display: none !important;
-    background: none !important;
-  }
-  .paginacao::before {
-    left: 0;
-    background: linear-gradient(90deg, #0f2e20cc 70%, transparent);
-  }
-  .paginacao::after {
-    right: 0;
-    background: linear-gradient(-90deg, #0f2e20cc 70%, transparent);
-  }
-}
-
-
-  .projetos-lista {
-    gap: 15px 2vw;
-    padding: 0 2vw 20px 2vw;
-    justify-content: center;
-  }
-  .projeto-card {
-    max-width: 97vw;
-    width: 100%;
-    min-width: 0;
-    padding: 12px 2vw 14px 2vw;
-    border-radius: 14px;
-    margin-left: auto;
-    margin-right: auto;
-  }
   .projeto-card img {
     width: 100%;
-    height: 150px;
-    min-height: 90px;
-    border-radius: 8px;
+    height: 290px;          /* Muito mais alta */
+    min-height: 180px;
+    max-height: 380px;
+    border-radius: 16px;
     object-fit: cover;
     margin-bottom: 10px;
-  }
-  .projeto-info h3 {
-    font-size: 1.05rem;
-  }
-  .projeto-categoria {
-    font-size: 0.92rem;
-    margin-bottom: 6px;
-  }
-  .projeto-desc {
-    font-size: 0.97rem;
-    min-height: unset;
-    margin-bottom: 11px;
-  }
-  .btn-solicitar {
-    font-size: 1.04rem;
-    padding: 12px 3vw;
-    border-radius: 8px;
+    background: #132c20;
+    box-shadow: 0 6px 18px #0003;
   }
 }
 
 /* Mobile "hard": até 480px */
 @media (max-width: 480px) {
-  body {
-    margin-top: 120px;
-  }
-
-  .titulo-centralizado {
-    font-size: 1.08rem;
-  }
-  .subtitulo-centralizado {
-    font-size: 0.93rem;
-    margin-bottom: 12px;
-  }
-
-  .projects-controls-simples {
-    gap: 8px;
-    max-width: 99vw;
-    padding: 0 1vw;
-  }
-
-  .projetos-lista {
-    gap: 8px 0;
-    padding: 0 1vw 12px 1vw;
-  }
-  .projeto-card {
-    padding: 8px 2vw 10px 2vw;
-    border-radius: 8px;
-    margin-bottom: 8px;
-  }
   .projeto-card img {
-    height: 125px;
-    min-height: 70px;
-    border-radius: 5px;
+    width: 100%;
+    height: 240px;          /* ALTA até nas telas pequenas */
+    min-height: 170px;
+    max-height: 320px;
+    border-radius: 16px;
     margin-bottom: 7px;
-  }
-  .projeto-info h3 {
-    font-size: 0.97rem;
-  }
-  .projeto-categoria {
-    font-size: 0.86rem;
-  }
-  .projeto-desc {
-    font-size: 0.93rem;
-    margin-bottom: 8px;
-  }
-  .category-filter {
-    padding: 7px 10px;
-    font-size: 0.92rem;
-    border-radius: 4px;
-  }
-  .btn-solicitar {
-    font-size: 0.99rem;
-    padding: 10px 10vw;
+    background: #132c20;
+    object-fit: cover;
+    box-shadow: 0 4px 14px #0002;
   }
 }
 
 /* Mini telas: até 370px */
 @media (max-width: 370px) {
   .projeto-card img {
-    height: 85px;
-    min-height: 45px;
+    height: 170px;
+    min-height: 100px;
+    border-radius: 12px;
     margin-bottom: 4px;
   }
-  .projeto-info h3 {
-    font-size: 0.86rem;
-  }
-  .btn-solicitar {
-    font-size: 0.94rem;
-    padding: 8px 6vw;
-  }
 }
-

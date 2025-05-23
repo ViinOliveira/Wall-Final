@@ -2373,207 +2373,89 @@
 </input></form>
 </div>
 </div>
+
 <script>
-  // Troca de idioma
-  window.trocarIdioma = function(lang) {
-    if (lang === "en") {
-      location.href = "projetos-en.html";
-    } else {
-      location.href = "projetos.html";
-    }
-  };
-
-  // Modal antigo (compatibilidade)
-  window.abrirFormulario = function(projetoId) {
-    document.getElementById('nomeProjeto').value = projetoId;
-    document.getElementById('modalSolicitar').style.display = 'flex';
-  };
-  window.fecharFormulario = function() {
-    document.getElementById('modalSolicitar').style.display = 'none';
-  };
-  window.onclick = function(e) {
-    var modal = document.getElementById('modalSolicitar');
-    if (e.target === modal) fecharFormulario();
-  };
-  if (document.getElementById('formSolicitar')) {
-    document.getElementById('formSolicitar').onsubmit = function(e) {
-      e.preventDefault();
-      alert("Solicitação enviada com sucesso! Em breve entraremos em contato.");
-      fecharFormulario();
-      this.reset();
-    }
+// ===== TROCA DE IDIOMA =====
+window.trocarIdioma = function(lang) {
+  if (lang === "en") {
+    location.href = "projetos-en.html";
+  } else {
+    location.href = "projetos.html";
   }
+};
 
-  // ====== PAGINAÇÃO + FILTRO + BUSCA ======
-  let projetosPorPagina = 12; // Quantos cards por página
-  let paginaAtual = 1;
-  let categoriaAtiva = "todos";
-  let searchTerm = "";
+// ===== ABRIR MODAL ANTIGO (COMPATIBILIDADE) =====
+window.abrirFormulario = function(projetoId) {
+  document.getElementById('nomeProjeto').value = projetoId;
+  document.getElementById('modalSolicitar').style.display = 'flex';
+};
 
-  function scrollPaginacaoInicio() {
-    const paginacao = document.getElementById('paginacaoProjetos');
-    if (paginacao) paginacao.scrollLeft = 0;
-  }
+window.fecharFormulario = function() {
+  document.getElementById('modalSolicitar').style.display = 'none';
+};
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Filtro de categoria
-    document.querySelectorAll('.category-filter').forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        categoriaAtiva = this.getAttribute('data-category');
-        paginaAtual = 1;
-        atualizarListaProjetosComPaginacao();
-        scrollPaginacaoInicio();
-      });
+window.onclick = function(e) {
+  var modal = document.getElementById('modalSolicitar');
+  if (e.target === modal) fecharFormulario();
+};
+
+if (document.getElementById('formSolicitar')) {
+  document.getElementById('formSolicitar').onsubmit = function(e) {
+    e.preventDefault();
+    alert("Solicitação enviada com sucesso! Em breve entraremos em contato.");
+    fecharFormulario();
+    this.reset();
+  };
+}
+
+// ===== FUNÇÃO PARA ENVIAR ORÇAMENTO COM SESSIONSTORAGE =====
+function irParaOrcamento(nomeProjeto, imagemProjeto) {
+  // Apenas a imagem será enviada (nomeProjeto será '')
+  sessionStorage.setItem('nomeProjeto', '');
+  sessionStorage.setItem('imagemProjeto', imagemProjeto);
+  window.location.href = 'solicitar-orcamento.html';
+}
+
+// ===== PAGINAÇÃO + FILTRO + BUSCA =====
+let projetosPorPagina = 12;
+let paginaAtual = 1;
+let categoriaAtiva = "todos";
+let searchTerm = "";
+
+function scrollPaginacaoInicio() {
+  const paginacao = document.getElementById('paginacaoProjetos');
+  if (paginacao) paginacao.scrollLeft = 0;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Filtro de categoria
+  document.querySelectorAll('.category-filter').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      categoriaAtiva = this.getAttribute('data-category');
+      paginaAtual = 1;
+      atualizarListaProjetosComPaginacao();
+      scrollPaginacaoInicio();
     });
+  });
 
-    // Busca
-    document.getElementById('projectSearch').addEventListener('input', function() {
+  // Busca
+  const searchInput = document.getElementById('projectSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
       searchTerm = this.value.toLowerCase().trim();
       paginaAtual = 1;
       atualizarListaProjetosComPaginacao();
       scrollPaginacaoInicio();
     });
-
-    // Inicializa paginação
-    atualizarListaProjetosComPaginacao();
-    scrollPaginacaoInicio();
-  });
-
-  function atualizarListaProjetosComPaginacao() {
-    let cards = Array.from(document.querySelectorAll('.projeto-card'));
-    let cardsFiltrados = (categoriaAtiva === 'todos')
-      ? cards
-      : cards.filter(card => card.getAttribute('data-category') === categoriaAtiva);
-
-    if (searchTerm) {
-      cardsFiltrados = cardsFiltrados.filter(card => {
-        const nome = card.querySelector('h3')?.textContent.toLowerCase() || '';
-        const desc = card.querySelector('.projeto-desc')?.textContent.toLowerCase() || '';
-        return nome.includes(searchTerm) || desc.includes(searchTerm);
-      });
-    }
-
-    const totalPaginas = Math.ceil(cardsFiltrados.length / projetosPorPagina);
-    if (paginaAtual > totalPaginas) paginaAtual = 1;
-    if (paginaAtual < 1) paginaAtual = 1;
-
-    cards.forEach(card => card.style.display = 'none');
-    const inicio = (paginaAtual - 1) * projetosPorPagina;
-    const fim = inicio + projetosPorPagina;
-    cardsFiltrados.slice(inicio, fim).forEach(card => card.style.display = '');
-
-    renderizarPaginacao(totalPaginas);
   }
 
-  // PAGINAÇÃO dinâmica: 1-6 sempre, se estiver na 6 mostra 7, se na 7 mostra 8, etc.
-  function renderizarPaginacao(totalPaginas) {
-    const paginacao = document.getElementById('paginacaoProjetos');
-    if (!paginacao) return;
-    paginacao.innerHTML = '';
-    if (totalPaginas <= 1) return;
+  // Inicializa a lista
+  atualizarListaProjetosComPaginacao();
+  scrollPaginacaoInicio();
 
-    // Botão anterior
-    if (paginaAtual > 1) {
-      const btnPrev = document.createElement('button');
-      btnPrev.textContent = 'Anterior';
-      btnPrev.onclick = () => {
-        paginaAtual--;
-        atualizarListaProjetosComPaginacao();
-        scrollPaginacaoInicio();
-      };
-      paginacao.appendChild(btnPrev);
-    }
-
-    // Mostra as páginas 1 a 6 sempre
-    let max = Math.min(6, totalPaginas);
-    for (let i = 1; i <= max; i++) {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      if (i === paginaAtual) btn.classList.add('active');
-      btn.onclick = () => {
-        paginaAtual = i;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btn);
-    }
-
-    // Se estiver na 6, mostra 7; se na 7 mostra 8, etc, até penúltima página
-    let extras = [];
-    let showExtra = false;
-    if (paginaAtual >= 6 && paginaAtual < totalPaginas) {
-      let next = paginaAtual + 1;
-      if (next <= totalPaginas - 1) {
-        extras.push(next);
-      }
-      showExtra = true;
-    }
-
-    // Renderiza extras (p.ex., 7, 8, etc.)
-    extras.forEach(function(i) {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      if (i === paginaAtual) btn.classList.add('active');
-      btn.onclick = () => {
-        paginaAtual = i;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btn);
-    });
-
-    // ... se ainda faltar páginas até a última
-    let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
-    if (totalPaginas > lastBtnShown + 1) {
-      const ellipsis = document.createElement('span');
-      ellipsis.textContent = '...';
-      ellipsis.style.margin = '0 8px';
-      paginacao.appendChild(ellipsis);
-    }
-
-    // Sempre mostra a última página (se ainda não foi mostrada)
-    if (totalPaginas > max) {
-      const btnLast = document.createElement('button');
-      btnLast.textContent = totalPaginas;
-      if (paginaAtual === totalPaginas) btnLast.classList.add('active');
-      btnLast.onclick = () => {
-        paginaAtual = totalPaginas;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btnLast);
-    }
-
-    // Botão próxima
-    if (paginaAtual < totalPaginas) {
-      const btnNext = document.createElement('button');
-      btnNext.textContent = 'Próxima';
-      btnNext.onclick = () => {
-        paginaAtual++;
-        atualizarListaProjetosComPaginacao();
-        scrollPaginacaoInicio();
-      };
-      paginacao.appendChild(btnNext);
-    }
-  }
-</script>
-<!-- Lightbox JS para galeria de imagens -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('.projeto-card').forEach(function(card) {
-    var img = card.querySelector('img');
-    // Verifica se já está dentro de <a>
-    if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
-      var link = document.createElement('a');
-      link.href = img.src;
-      link.setAttribute('data-lightbox', 'projetos');
-      link.setAttribute('data-title', img.alt || '');
-      img.parentElement.insertBefore(link, img);
-      link.appendChild(img);
-    }
-  });
-
-  // Menu hamburguer responsivo
+  // MENU HAMBURGUER
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector("nav");
   if (toggle && nav) {
@@ -2582,10 +2464,144 @@ document.addEventListener("DOMContentLoaded", function() {
       toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
     });
   }
+
+  // WRAP IMAGENS COM LINK DO LIGHTBOX
+  document.querySelectorAll('.projeto-card').forEach(function(card) {
+    const img = card.querySelector('img');
+    if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
+      const link = document.createElement('a');
+      link.href = img.src;
+      link.setAttribute('data-lightbox', 'projetos');
+      link.setAttribute('data-title', img.alt || '');
+      img.parentElement.insertBefore(link, img);
+      link.appendChild(img);
+    }
+  });
+
+  // OBSERVADOR PARA INSERIR BOTÃO NO LIGHTBOX (APENAS IMAGEM)
+  const observer = new MutationObserver(() => {
+    const img = document.querySelector('.lb-image');
+    const caption = document.querySelector('.lb-caption');
+    if (img && caption && !caption.querySelector('.btn-lightbox')) {
+      const imgSrc = img.getAttribute('src');
+      const btn = document.createElement('button');
+      btn.className = 'btn-lightbox';
+      btn.textContent = 'Solicitar Orçamento';
+      btn.onclick = () => irParaOrcamento('', imgSrc); // Só imagem
+      caption.innerHTML = ''; // Limpa título
+      caption.appendChild(btn);
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 });
+
+// ===== FUNÇÃO DE PAGINAÇÃO =====
+function atualizarListaProjetosComPaginacao() {
+  let cards = Array.from(document.querySelectorAll('.projeto-card'));
+  let cardsFiltrados = (categoriaAtiva === 'todos')
+    ? cards
+    : cards.filter(card => card.getAttribute('data-category') === categoriaAtiva);
+
+  if (searchTerm) {
+    cardsFiltrados = cardsFiltrados.filter(card => {
+      const nome = card.querySelector('h3')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('.projeto-desc')?.textContent.toLowerCase() || '';
+      return nome.includes(searchTerm) || desc.includes(searchTerm);
+    });
+  }
+
+  const totalPaginas = Math.ceil(cardsFiltrados.length / projetosPorPagina);
+  paginaAtual = Math.min(Math.max(paginaAtual, 1), totalPaginas);
+
+  cards.forEach(card => card.style.display = 'none');
+  const inicio = (paginaAtual - 1) * projetosPorPagina;
+  const fim = inicio + projetosPorPagina;
+  cardsFiltrados.slice(inicio, fim).forEach(card => card.style.display = '');
+
+  renderizarPaginacao(totalPaginas);
+}
+
+// ===== FUNÇÃO PARA RENDERIZAR CONTROLES DE PAGINAÇÃO =====
+function renderizarPaginacao(totalPaginas) {
+  const paginacao = document.getElementById('paginacaoProjetos');
+  if (!paginacao) return;
+  paginacao.innerHTML = '';
+  if (totalPaginas <= 1) return;
+
+  if (paginaAtual > 1) {
+    const btnPrev = document.createElement('button');
+    btnPrev.textContent = 'Anterior';
+    btnPrev.onclick = () => {
+      paginaAtual--;
+      atualizarListaProjetosComPaginacao();
+      scrollPaginacaoInicio();
+    };
+    paginacao.appendChild(btnPrev);
+  }
+
+  let max = Math.min(6, totalPaginas);
+  for (let i = 1; i <= max; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    if (i === paginaAtual) btn.classList.add('active');
+    btn.onclick = () => {
+      paginaAtual = i;
+      atualizarListaProjetosComPaginacao();
+    };
+    paginacao.appendChild(btn);
+  }
+
+  let extras = [];
+  if (paginaAtual >= 6 && paginaAtual < totalPaginas - 1) {
+    extras.push(paginaAtual + 1);
+  }
+
+  extras.forEach(i => {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    if (i === paginaAtual) btn.classList.add('active');
+    btn.onclick = () => {
+      paginaAtual = i;
+      atualizarListaProjetosComPaginacao();
+    };
+    paginacao.appendChild(btn);
+  });
+
+  let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
+  if (totalPaginas > lastBtnShown + 1) {
+    const ellipsis = document.createElement('span');
+    ellipsis.textContent = '...';
+    ellipsis.style.margin = '0 8px';
+    paginacao.appendChild(ellipsis);
+  }
+
+  if (totalPaginas > max) {
+    const btnLast = document.createElement('button');
+    btnLast.textContent = totalPaginas;
+    if (paginaAtual === totalPaginas) btnLast.classList.add('active');
+    btnLast.onclick = () => {
+      paginaAtual = totalPaginas;
+      atualizarListaProjetosComPaginacao();
+    };
+    paginacao.appendChild(btnLast);
+  }
+
+  if (paginaAtual < totalPaginas) {
+    const btnNext = document.createElement('button');
+    btnNext.textContent = 'Próxima';
+    btnNext.onclick = () => {
+      paginaAtual++;
+      atualizarListaProjetosComPaginacao();
+      scrollPaginacaoInicio();
+    };
+    paginacao.appendChild(btnNext);
+  }
+}
 </script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 <!-- Correto: usar projetos.js em vez de sobre.js -->
 <script src="./js/projetos.js" type="module"></script>
 </main></body>

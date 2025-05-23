@@ -120,126 +120,130 @@
 </footer>
 
 <script>
-  // Language switch
-  function trocarIdioma(lang) {
-    if (lang === "en") window.location.href = "solicitar-orcamento-en.html";
-    else window.location.href = "solicitar-orcamento.html";
+function switchLanguage(lang) {
+  if (lang === "pt") location.href = "solicitar-orcamento.html";
+  else location.href = "solicitar-orcamento-en.html";
+}
+window.switchLanguage = switchLanguage;
+
+document.addEventListener("DOMContentLoaded", function() {
+  const projectName = sessionStorage.getItem('nomeProjeto');
+  const projectImage = sessionStorage.getItem('imagemProjeto');
+  const suggestionBoxes = document.getElementById('caixas-sugestao');
+  const selectedProject = document.getElementById('orcamentoProjeto');
+  const quoteForm = document.getElementById('orcamentoForm');
+  const quoteInfo = document.querySelector('.orcamento-info');
+  const btnRemoveProject = document.getElementById('btnRemoverProjeto');
+  const img = document.getElementById('imagemProjeto');
+  const thankYouMsg = document.getElementById('orcamento-agradecimento');
+  const nameElement = document.getElementById('nomeProjeto');
+
+  // Show only if image is present
+  if (!projectImage) {
+    if (suggestionBoxes) suggestionBoxes.style.display = "flex";
+    if (selectedProject) selectedProject.style.display = "none";
+    if (quoteForm) quoteForm.style.display = "none";
+    if (quoteInfo) quoteInfo.style.display = "none";
+  } else {
+    if (suggestionBoxes) suggestionBoxes.style.display = "none";
+    if (selectedProject) selectedProject.style.display = "block";
+    if (quoteForm) quoteForm.style.display = "flex";
+    if (quoteInfo) quoteInfo.style.display = "block";
+    if (img) {
+      img.src = projectImage;
+      img.style.display = "block";
+    }
+    // Hide name if not set
+    if (!projectName && nameElement) nameElement.style.display = "none";
+    if (btnRemoveProject) btnRemoveProject.style.display = "inline-block";
   }
-  window.trocarIdioma = trocarIdioma;
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const nomeProjeto = sessionStorage.getItem('nomeProjeto');
-    const imagemProjeto = sessionStorage.getItem('imagemProjeto');
-    const caixasSugestao = document.getElementById('caixas-sugestao');
-    const orcamentoProjeto = document.getElementById('orcamentoProjeto');
-    const orcamentoForm = document.getElementById('orcamentoForm');
-    const orcamentoInfo = document.querySelector('.orcamento-info');
-    const btnRemoverProjeto = document.getElementById('btnRemoverProjeto');
-    const img = document.getElementById('imagemProjeto');
-    const agradecimento = document.getElementById('orcamento-agradecimento');
+  if (btnRemoveProject) {
+    btnRemoveProject.onclick = function() {
+      sessionStorage.removeItem('nomeProjeto');
+      sessionStorage.removeItem('imagemProjeto');
+      location.reload();
+    };
+  }
 
-    // Display logic
-    if (!nomeProjeto) {
-      if (caixasSugestao) caixasSugestao.style.display = "flex";
-      if (orcamentoProjeto) orcamentoProjeto.style.display = "none";
-      if (orcamentoForm) orcamentoForm.style.display = "none";
-      if (orcamentoInfo) orcamentoInfo.style.display = "none";
-    } else {
-      if (caixasSugestao) caixasSugestao.style.display = "none";
-      if (orcamentoProjeto) orcamentoProjeto.style.display = "block";
-      if (orcamentoForm) orcamentoForm.style.display = "flex";
-      if (orcamentoInfo) orcamentoInfo.style.display = "block";
-      document.getElementById('nomeProjeto').textContent = nomeProjeto;
-      if (imagemProjeto) {
-        img.src = imagemProjeto;
-        img.style.display = "block";
-      } else {
-        img.style.display = "none";
-      }
-      if (btnRemoverProjeto) btnRemoverProjeto.style.display = "inline-block";
-      btnRemoverProjeto.onclick = function() {
-        sessionStorage.removeItem('nomeProjeto');
-        sessionStorage.removeItem('imagemProjeto');
-        location.reload();
-      };
-    }
-
-    // Fill hidden fields on submit (project name & absolute image link)
-    if (orcamentoForm) {
-      orcamentoForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        document.getElementById('hiddenProjeto').value = sessionStorage.getItem('nomeProjeto') || '';
-
-        // Absolute image URL
-        const imagemProjeto = sessionStorage.getItem('imagemProjeto') || '';
-        let urlImagemCompleta = '';
-        if (imagemProjeto) {
-          if (imagemProjeto.startsWith('http')) {
-            urlImagemCompleta = imagemProjeto;
-          } else {
-            const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
-            urlImagemCompleta = baseUrl + imagemProjeto.replace(/^\//, '');
-          }
-        }
-        document.getElementById('hiddenImagemProjeto').value = urlImagemCompleta;
-
-        const formData = new FormData(orcamentoForm);
-
-        fetch(orcamentoForm.action, {
-          method: "POST",
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        })
-        .then(response => {
-          if (response.ok) {
-            orcamentoForm.reset();
-            orcamentoForm.style.display = "none";
-            agradecimento.style.display = "block";
-          } else {
-            alert('There was an error submitting the form. Please try again.');
-          }
-        })
-        .catch(error => {
-          alert('There was an error submitting the form. Please try again.');
-        });
-      });
-    }
-
-    // WhatsApp button (absolute image link)
-    document.getElementById('btnWhatsApp').onclick = function() {
-      const nome = document.getElementById('nome').value;
-      const projeto = document.getElementById('nomeProjeto').textContent;
-      const mensagem = document.getElementById('mensagem').value;
-      const imagemProjeto = sessionStorage.getItem('imagemProjeto');
-      let whatsappMsg = `Hello! I'm interested in the project "${projeto}".\n`;
-
-      // Absolute URL for image
-      let urlImagemCompleta = '';
-      if (imagemProjeto) {
-        if (imagemProjeto.startsWith('http')) {
-          urlImagemCompleta = imagemProjeto;
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('hiddenProjeto').value = ''; // no project name
+      let absoluteImgUrl = '';
+      if (projectImage) {
+        if (projectImage.startsWith('http')) {
+          absoluteImgUrl = projectImage;
         } else {
           const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
-          urlImagemCompleta = baseUrl + imagemProjeto.replace(/^\//, '');
+          absoluteImgUrl = baseUrl + projectImage.replace(/^\//, '');
         }
-        whatsappMsg += `Image link: ${urlImagemCompleta}\n`;
       }
-      whatsappMsg += `My name is ${nome}.`;
-      if (mensagem) whatsappMsg += `\n${mensagem}`;
-      const numero = "13219899078";
-      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(whatsappMsg)}`,'_blank');
-    };
+      document.getElementById('hiddenImagemProjeto').value = absoluteImgUrl;
+      const formData = new FormData(quoteForm);
+      fetch(quoteForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          quoteForm.reset();
+          quoteForm.style.display = "none";
+          if (thankYouMsg) thankYouMsg.style.display = "block";
+        } else {
+          alert('Error sending your request. Please try again.');
+        }
+      })
+      .catch(() => alert('Error sending your request. Please try again.'));
+    });
+  }
 
-    // ======= RESPONSIVE MENU =======
-    const toggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector("nav");
-    if (toggle && nav) {
-      toggle.addEventListener("click", function () {
-        nav.classList.toggle("show");
-        toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
-      });
-    }
-  });
+  const btnWhatsApp = document.getElementById('btnWhatsApp');
+  if (btnWhatsApp) {
+    btnWhatsApp.onclick = function() {
+      const name = document.getElementById('nome')?.value || "";
+      const message = document.getElementById('mensagem')?.value || "";
+      let absoluteImgUrl = '';
+      if (projectImage) {
+        if (projectImage.startsWith('http')) {
+          absoluteImgUrl = projectImage;
+        } else {
+          const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+          absoluteImgUrl = baseUrl + projectImage.replace(/^\//, '');
+        }
+      }
+      let text = `Hello! I'm interested in this project.\nImage: ${absoluteImgUrl}\nMy name is ${name}.`;
+      if (message) text += `\n${message}`;
+      window.open(`https://wa.me/13219899078?text=${encodeURIComponent(text)}`, '_blank');
+    };
+  }
+
+  // Responsive menu
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("show");
+      toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
+    });
+  }
+});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const form = document.querySelector('.orcamento-form');
+  const thankYouMessage = document.querySelector('#orcamento-agradecimento');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    Swal.fire({
+      title: 'Success!',
+      text: 'Your request has been sent successfully.',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
+  });
+  </script>
 </body>
 </html>
