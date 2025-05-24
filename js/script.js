@@ -14,10 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setHeroBackground(idx) {
     if (bg) {
+      bg.style.transition = "opacity 0.8s";
       bg.style.opacity = 0;
       setTimeout(() => {
         bg.style.backgroundImage =
-          `linear-gradient(rgba(15,46,32,0.31),rgba(15,46,32,0.38)), url('${images[current]}')`;;
+          `linear-gradient(rgba(15,46,32,0.27),rgba(15,46,32,0.32)), url('${images[idx]}')`;
         bg.style.opacity = 1;
       }, 150);
     }

@@ -107,20 +107,23 @@ nav {
   justify-content: center;
   overflow: hidden;
   margin-top: 90px;
+  background: #17291b; /* Garante que as barras laterais/verticais fiquem bonitas */
 }
 
 .hero-background {
   position: absolute;
   inset: 0;
-  background-size: cover !important;
-  background-position: center center !important;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;        /* Preenche toda a área, sem esticar */
+  background-position: center;   /* Centraliza sempre */
   background-repeat: no-repeat;
-  filter: brightness(1.1);
+  background-attachment: fixed;  /* Opcional: efeito parallax */
+  filter: brightness(1.07) saturate(1.12) contrast(1.09);
   z-index: 0;
-  transition: opacity 0.8s, background-image 0.8s;
-  min-height: 480px;
-  height: 100%;
+  transition: opacity 0.8s;
 }
+
 
 .hero::before {
   content: "";
@@ -138,44 +141,63 @@ nav {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 96vw;
-  padding: 0 22px;
+  color: #fff;
   text-align: center;
+  padding: 40px 24px;
+  max-width: 680px;
   margin: 0 auto;
+  border-radius: 22px;
+  background: rgba(20, 24, 34, 0.17);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.22);
+  transition: opacity 0.6s, background 0.3s;
 }
 
-.hero-content h2 {
-  font-family: 'Georgia', serif;
-  color: #fff;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  text-shadow: 0 4px 8px rgba(0,0,0,0.7);
-  margin-bottom: 0.7em;
-  line-height: 1.17;
+.hero-content h1 {
+  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4.1rem);
+  font-weight: 700;
+  line-height: 1.13;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-shadow:
+    0 4px 24px rgba(0,0,0,0.25),
+    0 1px 1px rgba(0,0,0,0.13);
+  background: linear-gradient(90deg, #e7c063 0%, #f3e1b8 40%, #e5b246 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  color: #f8f8f8;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.45);
-  margin-bottom: 2em;
-  line-height: 1.44;
+  font-size: clamp(1.17rem, 2.5vw, 1.7rem);
+  font-family: 'Inter', Arial, sans-serif;
+  margin-bottom: 36px;
+  font-weight: 400;
+  text-shadow: 0 1px 14px rgba(0,0,0,0.20);
 }
 
 .btn-hero {
   display: inline-block;
-  padding: 0.8em 2.2em;
-  background: linear-gradient(135deg, var(--dourado), var(--dourado-escuro));
-  color: var(--verde-escuro);
-  font-weight: 700;
-  border-radius: 50px;
+  background: #e5b246;
+  color: #222;
+  font-size: 1.18rem;
+  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  padding: 16px 44px;
+  border: none;
+  border-radius: 44px;
+  box-shadow: 0 4px 28px rgba(50,50,10,0.13);
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  cursor: pointer;
   text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .btn-hero:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  background: #b88c26;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
 }
 
 
@@ -301,10 +323,15 @@ nav {
 /* ========================
    MEDIA QUERIES - TABLET/CELULAR
 ======================== */
+
+/* Tablet e celulares grandes */
 @media (max-width: 1024px) {
-  .hero { margin-top: 70px; height: 80vh; }
-  .hero-content h2 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
-  .hero-content p { font-size: clamp(0.9rem, 3.5vw, 1.1rem); }
+  .hero {
+    margin-top: 70px;
+    height: 70vh;
+    min-height: 400px;
+    max-height: 520px;
+  }
   .header-container { padding: 10px 16px; }
   .menu-toggle {
     display: block;
@@ -407,70 +434,81 @@ nav {
     gap: 10px;
   }
   .footer-content a { margin: 0 6px; }
-}
-
-/* Responsividade mobile */
-@media (max-width: 900px) {
-  .hero {
-    min-height: 62vw;
-    height: 70vw;
-    max-height: 520px;
+  .hero-content h1 {
+    font-size: clamp(2rem, 6vw, 2.7rem);
   }
-  .hero-background {
-    min-height: 330px;
-    height: 100%;
-    max-height: 480px;
-  }
-  .hero-content {
-    max-width: 100vw;
-    padding: 0 4vw;
+  .hero-content p {
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
   }
 }
 
-@media (max-width: 600px) {
-  .hero {
-    min-height: 62vw;
-    height: 82vw;
-    max-height: 420px;
-  }
-  .hero-background {
-    min-height: 210px;
-    height: 100%;
-    max-height: 320px;
-  }
-  .hero-content {
-    padding: 0 2vw;
-  }
-}
-
+/* Ajuste para telas até 700px (mobile padrão) */
 @media (max-width: 700px) {
   .hero {
-    min-height: 420px !important;  /* aumenta o mínimo */
-    height: 62vh !important;        /* ocupa 62% da altura da tela */
-    max-height: none !important;
-    margin-top: 0 !important;
-    border-radius: 0 !important;
+    margin-top: 0;
+    min-height: 340px;
+    height: 62vh;
+    max-height: 430px;
+    border-radius: 0;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
   }
   .hero-background {
-    min-height: 420px !important;   /* acompanha a .hero */
-    height: 62vh !important;
-    max-height: none !important;
-    background-size: cover !important;
-    background-position: center center !important;
+    min-height: 340px;
+    height: 62vh;
+    max-height: 430px;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    border-radius: 0 !important;
+    border-radius: 0;
     z-index: 0;
   }
   .hero-content {
-    padding-bottom: 110px !important;
-    padding-top: 12px !important;
+    max-width: 97vw;
+    padding: 18px 4vw 85px 4vw;
     z-index: 2;
+    background: rgba(24,24,24,0.15);
+    backdrop-filter: blur(2.5px);
+    border-radius: 16px;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.3rem, 9vw, 2.2rem);
+    margin-bottom: 10px;
+  }
+  .hero-content p {
+    font-size: clamp(0.95rem, 4vw, 1.09rem);
+    margin-bottom: 18px;
+  }
+  .btn-hero {
+    font-size: 1.04rem;
+    padding: 12px 30px;
   }
 }
 
+/* Extra ajuste para telas pequenas mesmo */
 @media (max-width: 500px) {
+  .hero {
+    min-height: 230px;
+    height: 52vh;
+    max-height: 300px;
+  }
+  .hero-background {
+    min-height: 230px;
+    height: 52vh;
+    max-height: 300px;
+  }
+  .hero-content {
+    padding: 8px 2vw 55px 2vw;
+    border-radius: 10px;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.05rem, 10vw, 1.5rem);
+  }
+  .btn-hero {
+    padding: 10px 18px;
+    font-size: 0.96rem;
+  }
   body {
     background: #19322a !important;
   }
