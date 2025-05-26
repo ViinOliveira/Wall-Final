@@ -97,6 +97,7 @@
 </div>
 </div>
 <div class="paginacao" id="paginacaoProjetos"></div>
+<div id="filtroAtivoTexto" class="filtro-ativo-texto"></div>
 <div class="projetos-lista">
 <div class="projeto-card" data-category="bar">
 <img alt="Bar Moderno" src="img/Bar/download (1).jpeg">
@@ -2366,6 +2367,29 @@
       }
     });
   }
+});
+
+// Função para atualizar o texto do filtro ativo
+function atualizarFiltroAtivoTexto() {
+  const filtroAtivoDiv = document.getElementById('filtroAtivoTexto');
+  const filtroBtn = document.querySelector('.category-filter.active');
+  const nome = filtroBtn ? filtroBtn.textContent : 'All';
+  filtroAtivoDiv.textContent = `Showing results for: ${nome}`;
+}
+
+// Chame essa função após atualizar a lista ou mudar o filtro:
+document.addEventListener('DOMContentLoaded', function () {
+  // ... SEU OUTRO JS ...
+
+  // Chame também ao carregar a página e sempre que um filtro for clicado
+  atualizarFiltroAtivoTexto();
+
+  // Exemplo de ajuste no clique:
+  document.querySelectorAll('.category-filter').forEach(btn => {
+    btn.addEventListener('click', function () {
+      setTimeout(atualizarFiltroAtivoTexto, 100); // Delay para garantir que o botão ativo já mudou
+    });
+  });
 });
 
 

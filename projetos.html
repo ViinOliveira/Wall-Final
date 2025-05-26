@@ -101,6 +101,7 @@
 </div>
 <!-- Onde aparecerão os controles da paginação -->
 <div class="paginacao" id="paginacaoProjetos"></div>
+<div id="filtroAtivoTexto" class="filtro-ativo-texto"></div>
 <!-- Lista de projetos -->
 <div class="projetos-lista">
 <!-- 1 -->
@@ -2668,6 +2669,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Função para atualizar o texto do filtro ativo
+function atualizarFiltroAtivoTexto() {
+  const filtroAtivoDiv = document.getElementById('filtroAtivoTexto');
+  const filtroBtn = document.querySelector('.category-filter.active');
+  const nome = filtroBtn ? filtroBtn.textContent : 'All';
+  filtroAtivoDiv.textContent = `Mostrando resultados para: ${nome}`;
+}
+
+// Chame essa função após atualizar a lista ou mudar o filtro:
+document.addEventListener('DOMContentLoaded', function () {
+  // ... SEU OUTRO JS ...
+
+  // Chame também ao carregar a página e sempre que um filtro for clicado
+  atualizarFiltroAtivoTexto();
+
+  // Exemplo de ajuste no clique:
+  document.querySelectorAll('.category-filter').forEach(btn => {
+    btn.addEventListener('click', function () {
+      setTimeout(atualizarFiltroAtivoTexto, 100); // Delay para garantir que o botão ativo já mudou
+    });
+  });
+});
+
 
 
 </script>

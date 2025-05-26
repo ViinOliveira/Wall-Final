@@ -155,6 +155,16 @@ body {
   background: #ffd700;
 }
 
+  .filtro-ativo-texto {
+  margin-top: 10px;
+  margin-bottom: 26px;
+  font-size: 1.06rem;
+  color: #ffd700;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.4px;
+  }
+
 /* ==== LISTAGEM DE PROJETOS ==== */
 .projetos-lista {
   display: flex;
@@ -340,6 +350,16 @@ body {
     color: #14321d;
     box-shadow: 0 2px 8px #f0c04033;
     transform: translateY(-2px);
+  }
+
+  .filtro-ativo-texto {
+  margin-top: 10px;
+  margin-bottom: 26px;
+  font-size: 1.06rem;
+  color: #ffd700;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.4px;
   }
 }
 }
