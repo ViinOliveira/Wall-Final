@@ -74,10 +74,13 @@
       </p>
 </section>
 <div class="projects-controls-simples">
-<div class="search-container">
-<input class="search-input" id="projectSearch" placeholder="Buscar projetos..." type="search"/>
+  <div class="search-filtros-row">
+    <div class="search-container">
+    <input class="search-input" id="projectSearch" placeholder="Buscar projetos..." type="search"/>
+  </div>
+  <button class="btn-mostrar-filtros" id="btnMostrarFiltros" type="button">Filtros</button>
 </div>
-<div class="filter-container">
+<div class="filter-container" id="filterContainer">
 <button class="category-filter active" data-category="todos">Todos</button>
 <button class="category-filter" data-category="bar">Bar</button>
 <button class="category-filter" data-category="banheiro">Banheiro</button>
@@ -2597,6 +2600,32 @@ function renderizarPaginacao(totalPaginas) {
     paginacao.appendChild(btnNext);
   }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const btnMostrarFiltros = document.getElementById('btnMostrarFiltros');
+  const filterContainer = document.getElementById('filterContainer');
+  if (btnMostrarFiltros && filterContainer) {
+    btnMostrarFiltros.addEventListener('click', function () {
+      const estaVisivel = filterContainer.classList.toggle('filtros-visiveis');
+      btnMostrarFiltros.classList.toggle('active', estaVisivel);
+      btnMostrarFiltros.textContent = estaVisivel ? "Fechar" : "Filtros";
+    });
+
+    // NOVO: Fecha filtros ao clicar em uma categoria no mobile
+    filterContainer.addEventListener('click', function (e) {
+      if (
+        e.target.classList.contains('category-filter') &&
+        window.innerWidth <= 700
+      ) {
+        filterContainer.classList.remove('filtros-visiveis');
+        btnMostrarFiltros.classList.remove('active');
+        btnMostrarFiltros.textContent = "Filtros";
+      }
+    });
+  }
+});
+
+
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>

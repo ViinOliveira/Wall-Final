@@ -71,10 +71,13 @@
 <p class="subtitulo-centralizado">See some of the environments we have already transformed and choose your favorite!</p>
 </section>
 <div class="projects-controls-simples">
-<div class="search-container">
-<input class="search-input" id="projectSearch" placeholder="Buscar projetos..." type="search"/>
+  <div class="search-filtros-row">
+    <div class="search-container">
+    <input class="search-input" id="projectSearch" placeholder="Search projects..." type="search"/>
+  </div>
+  <button class="btn-mostrar-filtros" id="btnMostrarFiltros" type="button">Filters</button>
 </div>
-<div class="filter-container">
+<div class="filter-container" id="filterContainer">
 <button class="category-filter active" data-category="todos">All</button>
 <button class="category-filter" data-category="bar">Bar</button>
 <button class="category-filter" data-category="banheiro">Bathroom</button>
@@ -2296,6 +2299,31 @@
       paginacao.appendChild(btnNext);
     }
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+  const btnMostrarFiltros = document.getElementById('btnMostrarFiltros');
+  const filterContainer = document.getElementById('filterContainer');
+  if (btnMostrarFiltros && filterContainer) {
+    btnMostrarFiltros.addEventListener('click', function () {
+      const estaVisivel = filterContainer.classList.toggle('filtros-visiveis');
+      btnMostrarFiltros.classList.toggle('active', estaVisivel);
+      btnMostrarFiltros.textContent = estaVisivel ? "Fechar" : "Filtros";
+    });
+
+    // NOVO: Fecha filtros ao clicar em uma categoria no mobile
+    filterContainer.addEventListener('click', function (e) {
+      if (
+        e.target.classList.contains('category-filter') &&
+        window.innerWidth <= 700
+      ) {
+        filterContainer.classList.remove('filtros-visiveis');
+        btnMostrarFiltros.classList.remove('active');
+        btnMostrarFiltros.textContent = "Filtros";
+      }
+    });
+  }
+});
+
 
   // Função para redirecionar ao orçamento (usada no botão flutuante do lightbox)
   function irParaOrcamento(nomeProjeto, imagemProjeto) {
