@@ -1,11 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
   // ======= HERO SLIDESHOW =======
-  const images = [
-    'img/slide4.jpg',
-    'img/slide5.jpg',
-    'img/slide6.jpg',
-    'img/slide7.jpg',
-  ];
+  // DETECTA MOBILE
+  const isMobile = window.innerWidth <= 600;
+  // Troca array de imagens
+  const images = isMobile
+    ? [
+        'img/mobile-hero1.jpg',
+        'img/mobile-hero2.jpg',
+        'img/mobile-hero3.jpg',
+        'img/mobile-hero4.jpg'
+      ]
+    : [
+        'img/slide4.jpg',
+        'img/slide5.jpg',
+        'img/slide6.jpg',
+        'img/slide7.jpg'
+      ];
   let current = 0;
   const bg = document.querySelector('.hero-background');
   const leftArrow = document.querySelector('.hero-arrow-left');
@@ -14,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setHeroBackground(idx) {
     if (bg) {
-      bg.style.transition = "opacity 0.8s";
       bg.style.opacity = 0;
       setTimeout(() => {
         bg.style.backgroundImage =
@@ -45,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
     intervalId = setInterval(nextSlide, 6000);
   }
 
-  // INICIALIZAÇÃO
   if (bg) {
     setHeroBackground(current);
     resetInterval();
   }
+
 
   // ======= MENU RESPONSIVO =======
   const toggle = document.querySelector(".menu-toggle");
