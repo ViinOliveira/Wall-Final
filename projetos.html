@@ -2531,75 +2531,119 @@ function renderizarPaginacao(totalPaginas) {
   paginacao.innerHTML = '';
   if (totalPaginas <= 1) return;
 
-  if (paginaAtual > 1) {
+  const isMobile = window.innerWidth <= 700;
+
+  // DESKTOP: Botão Anterior
+  if (!isMobile && paginaAtual > 1) {
     const btnPrev = document.createElement('button');
     btnPrev.textContent = 'Anterior';
     btnPrev.onclick = () => {
       paginaAtual--;
       atualizarListaProjetosComPaginacao();
-      scrollPaginacaoInicio();
     };
     paginacao.appendChild(btnPrev);
   }
 
-  let max = Math.min(6, totalPaginas);
-  for (let i = 1; i <= max; i++) {
-    const btn = document.createElement('button');
-    btn.textContent = i;
-    if (i === paginaAtual) btn.classList.add('active');
-    btn.onclick = () => {
-      paginaAtual = i;
-      atualizarListaProjetosComPaginacao();
-    };
-    paginacao.appendChild(btn);
-  }
+  if (isMobile) {
+    // MOBILE: Apenas números essenciais
+    if (paginaAtual > 1) {
+      const btn = document.createElement('button');
+      btn.textContent = paginaAtual - 1;
+      btn.onclick = () => {
+        paginaAtual = paginaAtual - 1;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btn);
+    }
 
-  let extras = [];
-  if (paginaAtual >= 6 && paginaAtual < totalPaginas - 1) {
-    extras.push(paginaAtual + 1);
-  }
+    const btnAtual = document.createElement('button');
+    btnAtual.textContent = paginaAtual;
+    btnAtual.classList.add('active');
+    paginacao.appendChild(btnAtual);
 
-  extras.forEach(i => {
-    const btn = document.createElement('button');
-    btn.textContent = i;
-    if (i === paginaAtual) btn.classList.add('active');
-    btn.onclick = () => {
-      paginaAtual = i;
-      atualizarListaProjetosComPaginacao();
-    };
-    paginacao.appendChild(btn);
-  });
+    if (paginaAtual < totalPaginas) {
+      const btn = document.createElement('button');
+      btn.textContent = paginaAtual + 1;
+      btn.onclick = () => {
+        paginaAtual = paginaAtual + 1;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btn);
+    }
 
-  let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
-  if (totalPaginas > lastBtnShown + 1) {
-    const ellipsis = document.createElement('span');
-    ellipsis.textContent = '...';
-    ellipsis.style.margin = '0 8px';
-    paginacao.appendChild(ellipsis);
-  }
+    if (paginaAtual < totalPaginas - 1) {
+      const ellipsis = document.createElement('span');
+      ellipsis.textContent = '...';
+      paginacao.appendChild(ellipsis);
+    }
 
-  if (totalPaginas > max) {
-    const btnLast = document.createElement('button');
-    btnLast.textContent = totalPaginas;
-    if (paginaAtual === totalPaginas) btnLast.classList.add('active');
-    btnLast.onclick = () => {
-      paginaAtual = totalPaginas;
-      atualizarListaProjetosComPaginacao();
-    };
-    paginacao.appendChild(btnLast);
-  }
+    if (paginaAtual !== totalPaginas) {
+      const btnLast = document.createElement('button');
+      btnLast.textContent = totalPaginas;
+      btnLast.onclick = () => {
+        paginaAtual = totalPaginas;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btnLast);
+    }
+  } else {
+    // DESKTOP: Paginação mais detalhada
+    let max = Math.min(6, totalPaginas);
+    for (let i = 1; i <= max; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === paginaAtual) btn.classList.add('active');
+      btn.onclick = () => {
+        paginaAtual = i;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btn);
+    }
+    let extras = [];
+    if (paginaAtual >= 6 && paginaAtual < totalPaginas - 1) {
+      extras.push(paginaAtual + 1);
+    }
+    extras.forEach(i => {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === paginaAtual) btn.classList.add('active');
+      btn.onclick = () => {
+        paginaAtual = i;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btn);
+    });
+    let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
+    if (totalPaginas > lastBtnShown + 1) {
+      const ellipsis = document.createElement('span');
+      ellipsis.textContent = '...';
+      ellipsis.style.margin = '0 8px';
+      paginacao.appendChild(ellipsis);
+    }
+    if (totalPaginas > max) {
+      const btnLast = document.createElement('button');
+      btnLast.textContent = totalPaginas;
+      if (paginaAtual === totalPaginas) btnLast.classList.add('active');
+      btnLast.onclick = () => {
+        paginaAtual = totalPaginas;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btnLast);
+    }
 
-  if (paginaAtual < totalPaginas) {
-    const btnNext = document.createElement('button');
-    btnNext.textContent = 'Próxima';
-    btnNext.onclick = () => {
-      paginaAtual++;
-      atualizarListaProjetosComPaginacao();
-      scrollPaginacaoInicio();
-    };
-    paginacao.appendChild(btnNext);
+    // DESKTOP: Botão Próxima
+    if (paginaAtual < totalPaginas) {
+      const btnNext = document.createElement('button');
+      btnNext.textContent = 'Próxima';
+      btnNext.onclick = () => {
+        paginaAtual++;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btnNext);
+    }
   }
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const btnMostrarFiltros = document.getElementById('btnMostrarFiltros');

@@ -2225,22 +2225,68 @@
   }
 
   function renderizarPaginacao(totalPaginas) {
-    const paginacao = document.getElementById('paginacaoProjetos');
-    if (!paginacao) return;
-    paginacao.innerHTML = '';
-    if (totalPaginas <= 1) return;
+  const paginacao = document.getElementById('paginacaoProjetos');
+  if (!paginacao) return;
+  paginacao.innerHTML = '';
+  if (totalPaginas <= 1) return;
 
+  const isMobile = window.innerWidth <= 700;
+
+  // DESKTOP: Botão Anterior
+  if (!isMobile && paginaAtual > 1) {
+    const btnPrev = document.createElement('button');
+    btnPrev.textContent = 'Anterior';
+    btnPrev.onclick = () => {
+      paginaAtual--;
+      atualizarListaProjetosComPaginacao();
+    };
+    paginacao.appendChild(btnPrev);
+  }
+
+  if (isMobile) {
+    // MOBILE: Apenas números essenciais
     if (paginaAtual > 1) {
-      const btnPrev = document.createElement('button');
-      btnPrev.textContent = 'Anterior';
-      btnPrev.onclick = () => {
-        paginaAtual--;
+      const btn = document.createElement('button');
+      btn.textContent = paginaAtual - 1;
+      btn.onclick = () => {
+        paginaAtual = paginaAtual - 1;
         atualizarListaProjetosComPaginacao();
-        scrollPaginacaoInicio();
       };
-      paginacao.appendChild(btnPrev);
+      paginacao.appendChild(btn);
     }
 
+    const btnAtual = document.createElement('button');
+    btnAtual.textContent = paginaAtual;
+    btnAtual.classList.add('active');
+    paginacao.appendChild(btnAtual);
+
+    if (paginaAtual < totalPaginas) {
+      const btn = document.createElement('button');
+      btn.textContent = paginaAtual + 1;
+      btn.onclick = () => {
+        paginaAtual = paginaAtual + 1;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btn);
+    }
+
+    if (paginaAtual < totalPaginas - 1) {
+      const ellipsis = document.createElement('span');
+      ellipsis.textContent = '...';
+      paginacao.appendChild(ellipsis);
+    }
+
+    if (paginaAtual !== totalPaginas) {
+      const btnLast = document.createElement('button');
+      btnLast.textContent = totalPaginas;
+      btnLast.onclick = () => {
+        paginaAtual = totalPaginas;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btnLast);
+    }
+  } else {
+    // DESKTOP: Paginação mais detalhada
     let max = Math.min(6, totalPaginas);
     for (let i = 1; i <= max; i++) {
       const btn = document.createElement('button');
@@ -2252,12 +2298,10 @@
       };
       paginacao.appendChild(btn);
     }
-
     let extras = [];
     if (paginaAtual >= 6 && paginaAtual < totalPaginas - 1) {
       extras.push(paginaAtual + 1);
     }
-
     extras.forEach(i => {
       const btn = document.createElement('button');
       btn.textContent = i;
@@ -2268,7 +2312,6 @@
       };
       paginacao.appendChild(btn);
     });
-
     let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
     if (totalPaginas > lastBtnShown + 1) {
       const ellipsis = document.createElement('span');
@@ -2276,7 +2319,6 @@
       ellipsis.style.margin = '0 8px';
       paginacao.appendChild(ellipsis);
     }
-
     if (totalPaginas > max) {
       const btnLast = document.createElement('button');
       btnLast.textContent = totalPaginas;
@@ -2288,17 +2330,19 @@
       paginacao.appendChild(btnLast);
     }
 
+    // DESKTOP: Botão Próxima
     if (paginaAtual < totalPaginas) {
       const btnNext = document.createElement('button');
       btnNext.textContent = 'Próxima';
       btnNext.onclick = () => {
         paginaAtual++;
         atualizarListaProjetosComPaginacao();
-        scrollPaginacaoInicio();
       };
       paginacao.appendChild(btnNext);
     }
   }
+}
+
 
   document.addEventListener('DOMContentLoaded', function () {
   const btnMostrarFiltros = document.getElementById('btnMostrarFiltros');

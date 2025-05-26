@@ -685,6 +685,25 @@ nav {
     transform: translateY(-5px) scale(1.03);
     box-shadow: 0 12px 40px rgba(0,0,0,0.16);
   }
+
+    .paginacao {
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #ffd700 #0f2e20;
+    margin: 18px 0;
+  }
+  .paginacao button,
+  .paginacao span {
+    min-width: 38px;
+    padding: 7px 0;
+    font-size: 1rem;
+    border-radius: 7px;
+    margin: 0;
+  }
 }
 
 /* =========================================
