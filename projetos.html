@@ -2534,61 +2534,101 @@ function renderizarPaginacao(totalPaginas) {
 
   const isMobile = window.innerWidth <= 700;
 
-  // DESKTOP: Botão Anterior
-  if (!isMobile && paginaAtual > 1) {
-    const btnPrev = document.createElement('button');
-    btnPrev.textContent = 'Anterior';
-    btnPrev.onclick = () => {
-      paginaAtual--;
-      atualizarListaProjetosComPaginacao();
-    };
-    paginacao.appendChild(btnPrev);
-  }
+if (isMobile) {
+  let windowSize = 5; // quantos botões numéricos aparecem
+  let buttons = [];
+  // Sempre mostrar primeira e última página, e uma janela de 3 botões ao redor da atual
 
-  if (isMobile) {
-    // MOBILE: Apenas números essenciais
-    if (paginaAtual > 1) {
-      const btn = document.createElement('button');
-      btn.textContent = paginaAtual - 1;
-      btn.onclick = () => {
-        paginaAtual = paginaAtual - 1;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btn);
-    }
-
-    const btnAtual = document.createElement('button');
-    btnAtual.textContent = paginaAtual;
-    btnAtual.classList.add('active');
-    paginacao.appendChild(btnAtual);
-
-    if (paginaAtual < totalPaginas) {
-      const btn = document.createElement('button');
-      btn.textContent = paginaAtual + 1;
-      btn.onclick = () => {
-        paginaAtual = paginaAtual + 1;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btn);
-    }
-
-    if (paginaAtual < totalPaginas - 1) {
-      const ellipsis = document.createElement('span');
-      ellipsis.textContent = '...';
-      paginacao.appendChild(ellipsis);
-    }
-
-    if (paginaAtual !== totalPaginas) {
-      const btnLast = document.createElement('button');
-      btnLast.textContent = totalPaginas;
-      btnLast.onclick = () => {
-        paginaAtual = totalPaginas;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btnLast);
+  if (totalPaginas <= windowSize) {
+    // Poucas páginas: mostra todas
+    for (let i = 1; i <= totalPaginas; i++) {
+      buttons.push(i);
     }
   } else {
-    // DESKTOP: Paginação mais detalhada
+    // Muitas páginas
+    if (paginaAtual <= 3) {
+      buttons = [1, 2, 3, 4, 5];
+    } else if (paginaAtual >= totalPaginas - 2) {
+      buttons = [
+        totalPaginas - 4,
+        totalPaginas - 3,
+        totalPaginas - 2,
+        totalPaginas - 1,
+        totalPaginas
+      ];
+    } else {
+      buttons = [
+        paginaAtual - 2,
+        paginaAtual - 1,
+        paginaAtual,
+        paginaAtual + 1,
+        paginaAtual + 2
+      ];
+    }
+  }
+
+  // Botão "1"
+  if (buttons[0] !== 1) {
+    const btnFirst = document.createElement('button');
+    btnFirst.textContent = '1';
+    if (paginaAtual === 1) btnFirst.classList.add('active');
+    btnFirst.onclick = () => {
+      paginaAtual = 1;
+      atualizarListaProjetosComPaginacao();
+    };
+    paginacao.appendChild(btnFirst);
+
+    if (buttons[0] !== 2) {
+      const ellipsis1 = document.createElement('span');
+      ellipsis1.textContent = '...';
+      ellipsis1.style.margin = '0 8px';
+      paginacao.appendChild(ellipsis1);
+    }
+  }
+
+  // Botões "janela"
+  buttons.forEach(i => {
+    if (i > 1 && i < totalPaginas) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === paginaAtual) btn.classList.add('active');
+      btn.onclick = () => {
+        paginaAtual = i;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btn);
+    }
+  });
+
+  // Botão "última"
+  if (buttons[buttons.length - 1] !== totalPaginas) {
+    if (buttons[buttons.length - 1] !== totalPaginas - 1) {
+      const ellipsis2 = document.createElement('span');
+      ellipsis2.textContent = '...';
+      ellipsis2.style.margin = '0 8px';
+      paginacao.appendChild(ellipsis2);
+    }
+    const btnLast = document.createElement('button');
+    btnLast.textContent = totalPaginas;
+    if (paginaAtual === totalPaginas) btnLast.classList.add('active');
+    btnLast.onclick = () => {
+      paginaAtual = totalPaginas;
+      atualizarListaProjetosComPaginacao();
+    };
+    paginacao.appendChild(btnLast);
+  }
+  } else {
+    // Desktop: versão completa (seu código antigo)
+    if (paginaAtual > 1) {
+      const btnPrev = document.createElement('button');
+      btnPrev.textContent = 'Anterior';
+      btnPrev.onclick = () => {
+        paginaAtual--;
+        atualizarListaProjetosComPaginacao();
+      };
+      paginacao.appendChild(btnPrev);
+    }
+
     let max = Math.min(6, totalPaginas);
     for (let i = 1; i <= max; i++) {
       const btn = document.createElement('button');
@@ -2631,8 +2671,6 @@ function renderizarPaginacao(totalPaginas) {
       };
       paginacao.appendChild(btnLast);
     }
-
-    // DESKTOP: Botão Próxima
     if (paginaAtual < totalPaginas) {
       const btnNext = document.createElement('button');
       btnNext.textContent = 'Próxima';

@@ -361,6 +361,15 @@ body {
   text-align: center;
   letter-spacing: 0.4px;
   }
+
+  .btn-lightbox {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    min-width: 0;
+    max-width: 85vw;
+    margin-bottom: 6px;
+  }
 }
 }
 
@@ -377,6 +386,16 @@ body {
     object-fit: cover;
     box-shadow: 0 4px 14px #0002;
   }
+
+  .btn-lightbox {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    min-width: 0;
+    max-width: 85vw;
+    margin-bottom: 6px;
+  }
+
 }
 
 /* Mini telas: até 370px */
