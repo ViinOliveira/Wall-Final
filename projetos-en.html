@@ -41,19 +41,19 @@
 <a class="btn-orcamento" href="./solicitar-orcamento-en.html">Request a Quote</a>
 </li>
 <!-- Language switcher (mobile) -->
-<li class="language-switcher mobile-only">
+<!-- <li class="language-switcher mobile-only">
 <button aria-label="Portuguese" onclick="trocarIdioma('pt')">
 <img alt="PT" src="./img/brazil-icon-64.png"/>
 </button>
 <button aria-label="English" onclick="trocarIdioma('en')">
 <img alt="EN" src="./img/united-icon-64.png"/>
 </button>
-</li>
+</li>-->
 </ul>
-</nav>
-<!-- Quote button & flags (desktop) -->
+</nav> 
 <div class="btn-language-group desktop-only">
 <a class="btn-orcamento" href="./solicitar-orcamento-en.html">Request a Quote</a>
+<!-- Language switcher (desktop)
 <div class="language-switcher">
 <button aria-label="Portuguese" onclick="trocarIdioma('pt')">
 <img alt="PT" src="./img/brazil-icon-64.png"/>
@@ -62,12 +62,12 @@
 <img alt="EN" src="./img/united-icon-64.png"/>
 </button>
 </div>
-</div>
+</div>-->
 </div>
 </header>
 <main>
 <section class="projetos-hero-central">
-<h1 class="titulo-centralizado">Get to know our projects</h1>
+<h1 class="titulo-centralizado">Change to Projects to get inspired by</h1>
 <p class="subtitulo-centralizado">See some of the environments we have already transformed and choose your favorite!</p>
 </section>
 <div class="projects-controls-simples">
@@ -75,7 +75,7 @@
     <div class="search-container">
     <input class="search-input" id="projectSearch" placeholder="Search projects..." type="search"/>
   </div>
-  <button class="btn-mostrar-filtros" id="btnMostrarFiltros" type="button">Filters</button>
+
 </div>
 <div class="filter-container" id="filterContainer">
 <button class="category-filter active" data-category="todos">All</button>
@@ -97,15 +97,7 @@
 </div>
 </div>
 <div class="paginacao" id="paginacaoProjetos"></div>
-<div id="filtroAtivoTexto" class="filtro-ativo-texto"></div>
 <div class="projetos-lista">
-<div class="projeto-card" data-category="bar">
-<img alt="Bar Moderno" src="img/Bar/download (1).jpeg">
-<div class="projeto-info">
-<h3>Bar</h3>
-<button class="btn-solicitar" onclick="irParaOrcamento('Bar', 'img/Bar/download (1).jpeg')">Request budget</button>
-</div>
-</img></div>
 <div class="projeto-card" data-category="bar">
 <img alt="Bar Compacto" src="img/Bar/download (2).jpeg">
 <div class="projeto-info">
@@ -574,13 +566,7 @@
 <button class="btn-solicitar" onclick="irParaOrcamento('Bedroom', 'img/Bedroom/download (25).jpeg')">Request budget</button>
 </div>
 </div>
-<div class="projeto-card" data-category="comercial">
-<img alt="Escritório Moderno" src="img/Business/download (1).jpeg"/>
-<div class="projeto-info">
-<h3>Business</h3>
-<button class="btn-solicitar" onclick="irParaOrcamento('Business', 'img/Business/download (1).jpeg')">Request budget</button>
-</div>
-</div>
+
 <div class="projeto-card" data-category="comercial">
 <img alt="Sala de Reunião Integrada" src="img/Business/download (2).jpeg"/>
 <div class="projeto-info">
@@ -1541,13 +1527,6 @@
 </div>
 </div>
 <div class="projeto-card" data-category="escritorio">
-<img alt="Escritório Moderno 13" src="img/Office/download (13).jpeg"/>
-<div class="projeto-info">
-<h3>Office</h3>
-<button class="btn-solicitar" onclick="irParaOrcamento('Office', 'img/Office/download (13).jpeg')">Request budget</button>
-</div>
-</div>
-<div class="projeto-card" data-category="escritorio">
 <img alt="Escritório Moderno 14" src="img/Office/download (14).jpeg"/>
 <div class="projeto-info">
 <h3>Office</h3>
@@ -2066,7 +2045,7 @@
 </div>
 </div>
 </div>
-<div class="paginacao" id="paginacaoProjetos"></div>
+<div class="paginacao" id="paginacaoProjetos-end"></div>
 <footer class="footer">
 <div class="footer-content">
 <p>© 2025 Wall &amp; Design. All rights reserve
@@ -2090,316 +2069,301 @@
 </div>
 </div>
 <script>
-  // ==== Troca de idioma ====
-  window.trocarIdioma = function(lang) {
-    if (lang === "en") {
-      location.href = "projetos-en.html";
-    } else {
-      location.href = "projetos.html";
-    }
-  };
-
-  // ==== Modal antigo (compatibilidade) ====
-  window.abrirFormulario = function(projetoId) {
-    document.getElementById('nomeProjeto').value = projetoId;
-    document.getElementById('modalSolicitar').style.display = 'flex';
-  };
-  window.fecharFormulario = function() {
-    document.getElementById('modalSolicitar').style.display = 'none';
-  };
-  window.onclick = function(e) {
-    var modal = document.getElementById('modalSolicitar');
-    if (e.target === modal) fecharFormulario();
-  };
-  if (document.getElementById('formSolicitar')) {
-    document.getElementById('formSolicitar').onsubmit = function(e) {
-      e.preventDefault();
-      alert("Solicitação enviada com sucesso! Em breve entraremos em contato.");
-      fecharFormulario();
-      this.reset();
-    }
-  }
-
-  // ==== Paginação + Filtro + Busca ====
-  let projetosPorPagina = 12;
-  let paginaAtual = 1;
-  let categoriaAtiva = "todos";
-  let searchTerm = "";
-
-  function scrollPaginacaoInicio() {
-    const paginacao = document.getElementById('paginacaoProjetos');
-    if (paginacao) paginacao.scrollLeft = 0;
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // Filtro de categoria
-    document.querySelectorAll('.category-filter').forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        categoriaAtiva = this.getAttribute('data-category');
-        paginaAtual = 1;
-        atualizarListaProjetosComPaginacao();
-        scrollPaginacaoInicio();
-      });
-    });
-
-    // Busca
-    const searchInput = document.getElementById('projectSearch');
-    if (searchInput) {
-      searchInput.addEventListener('input', function() {
-        searchTerm = this.value.toLowerCase().trim();
-        paginaAtual = 1;
-        atualizarListaProjetosComPaginacao();
-        scrollPaginacaoInicio();
-      });
-    }
-
-    // Inicializa lista/paginação
-    atualizarListaProjetosComPaginacao();
-    scrollPaginacaoInicio();
-
-    // Menu hamburguer responsivo
-    const toggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector("nav");
-    if (toggle && nav) {
-      toggle.addEventListener("click", function () {
-        nav.classList.toggle("show");
-        toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
-      });
-    }
-
-    // Envolver imagens com <a> para o Lightbox
-    document.querySelectorAll('.projeto-card').forEach(function(card) {
-      var img = card.querySelector('img');
-      if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
-        var link = document.createElement('a');
-        link.href = img.src;
-        link.setAttribute('data-lightbox', 'projetos');
-        link.setAttribute('data-title', img.alt || '');
-        img.parentElement.insertBefore(link, img);
-        link.appendChild(img);
-      }
-    });
-
-    // Botão flutuante no Lightbox (Solicitar Orçamento)
-    const observer = new MutationObserver(() => {
-      const img = document.querySelector('.lb-image');
-      const caption = document.querySelector('.lb-caption');
-      if (img && caption && !caption.querySelector('.btn-lightbox')) {
-        const imgSrc = img.getAttribute('src');
-        const btn = document.createElement('button');
-        btn.className = 'btn-lightbox';
-        btn.textContent = 'Request budget';
-        btn.onclick = () => irParaOrcamento('', imgSrc);
-        caption.innerHTML = '';
-        caption.appendChild(btn);
-      }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-  });
-
-  function atualizarListaProjetosComPaginacao() {
-    let cards = Array.from(document.querySelectorAll('.projeto-card'));
-    let cardsFiltrados = (categoriaAtiva === 'todos')
-      ? cards
-      : cards.filter(card => card.getAttribute('data-category') === categoriaAtiva);
-
-    if (searchTerm) {
-      cardsFiltrados = cardsFiltrados.filter(card => {
-        const nome = card.querySelector('h3')?.textContent.toLowerCase() || '';
-        const desc = card.querySelector('.projeto-desc')?.textContent.toLowerCase() || '';
-        return nome.includes(searchTerm) || desc.includes(searchTerm);
-      });
-    }
-
-    const totalPaginas = Math.ceil(cardsFiltrados.length / projetosPorPagina);
-    if (paginaAtual > totalPaginas) paginaAtual = 1;
-    if (paginaAtual < 1) paginaAtual = 1;
-
-    cards.forEach(card => card.style.display = 'none');
-    const inicio = (paginaAtual - 1) * projetosPorPagina;
-    const fim = inicio + projetosPorPagina;
-    cardsFiltrados.slice(inicio, fim).forEach(card => card.style.display = '');
-
-    renderizarPaginacao(totalPaginas);
-  }
-
-  function renderizarPaginacao(totalPaginas) {
-  const paginacao = document.getElementById('paginacaoProjetos');
-  if (!paginacao) return;
-  paginacao.innerHTML = '';
-  if (totalPaginas <= 1) return;
-
-  const isMobile = window.innerWidth <= 700;
-
-  // DESKTOP: Botão Anterior
-  if (!isMobile && paginaAtual > 1) {
-    const btnPrev = document.createElement('button');
-    btnPrev.textContent = 'Anterior';
-    btnPrev.onclick = () => {
-      paginaAtual--;
-      atualizarListaProjetosComPaginacao();
-    };
-    paginacao.appendChild(btnPrev);
-  }
-
-  if (isMobile) {
-    // MOBILE: Apenas números essenciais
-    if (paginaAtual > 1) {
-      const btn = document.createElement('button');
-      btn.textContent = paginaAtual - 1;
-      btn.onclick = () => {
-        paginaAtual = paginaAtual - 1;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btn);
-    }
-
-    const btnAtual = document.createElement('button');
-    btnAtual.textContent = paginaAtual;
-    btnAtual.classList.add('active');
-    paginacao.appendChild(btnAtual);
-
-    if (paginaAtual < totalPaginas) {
-      const btn = document.createElement('button');
-      btn.textContent = paginaAtual + 1;
-      btn.onclick = () => {
-        paginaAtual = paginaAtual + 1;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btn);
-    }
-
-    if (paginaAtual < totalPaginas - 1) {
-      const ellipsis = document.createElement('span');
-      ellipsis.textContent = '...';
-      paginacao.appendChild(ellipsis);
-    }
-
-    if (paginaAtual !== totalPaginas) {
-      const btnLast = document.createElement('button');
-      btnLast.textContent = totalPaginas;
-      btnLast.onclick = () => {
-        paginaAtual = totalPaginas;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btnLast);
-    }
+window.trocarIdioma = function(lang) {
+  if (lang === "en") {
+    location.href = "projetos-en.html";
   } else {
-    // DESKTOP: Paginação mais detalhada
-    let max = Math.min(6, totalPaginas);
-    for (let i = 1; i <= max; i++) {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      if (i === paginaAtual) btn.classList.add('active');
-      btn.onclick = () => {
-        paginaAtual = i;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btn);
-    }
-    let extras = [];
-    if (paginaAtual >= 6 && paginaAtual < totalPaginas - 1) {
-      extras.push(paginaAtual + 1);
-    }
-    extras.forEach(i => {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      if (i === paginaAtual) btn.classList.add('active');
-      btn.onclick = () => {
-        paginaAtual = i;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btn);
-    });
-    let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
-    if (totalPaginas > lastBtnShown + 1) {
-      const ellipsis = document.createElement('span');
-      ellipsis.textContent = '...';
-      ellipsis.style.margin = '0 8px';
-      paginacao.appendChild(ellipsis);
-    }
-    if (totalPaginas > max) {
-      const btnLast = document.createElement('button');
-      btnLast.textContent = totalPaginas;
-      if (paginaAtual === totalPaginas) btnLast.classList.add('active');
-      btnLast.onclick = () => {
-        paginaAtual = totalPaginas;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btnLast);
-    }
+    location.href = "projetos.html";
+  }
+};
 
-    // DESKTOP: Botão Próxima
-    if (paginaAtual < totalPaginas) {
-      const btnNext = document.createElement('button');
-      btnNext.textContent = 'Próxima';
-      btnNext.onclick = () => {
-        paginaAtual++;
-        atualizarListaProjetosComPaginacao();
-      };
-      paginacao.appendChild(btnNext);
-    }
+// Modal antigo (compatibilidade)
+window.abrirFormulario = function(projetoId) {
+  document.getElementById('nomeProjeto').value = projetoId;
+  document.getElementById('modalSolicitar').style.display = 'flex';
+};
+window.fecharFormulario = function() {
+  document.getElementById('modalSolicitar').style.display = 'none';
+};
+window.onclick = function(e) {
+  var modal = document.getElementById('modalSolicitar');
+  if (e.target === modal) fecharFormulario();
+};
+if (document.getElementById('formSolicitar')) {
+  document.getElementById('formSolicitar').onsubmit = function(e) {
+    e.preventDefault();
+    alert("Solicitação enviada com sucesso! Em breve entraremos em contato.");
+    fecharFormulario();
+    this.reset();
   }
 }
 
+// ==== Paginação + Filtro + Busca ====
+let projetosPorPagina = 12;
+let paginaAtual = 1;
+let categoriaAtiva = "todos";
+let searchTerm = "";
 
-  document.addEventListener('DOMContentLoaded', function () {
-  const btnMostrarFiltros = document.getElementById('btnMostrarFiltros');
-  const filterContainer = document.getElementById('filterContainer');
-  if (btnMostrarFiltros && filterContainer) {
-    btnMostrarFiltros.addEventListener('click', function () {
-      const estaVisivel = filterContainer.classList.toggle('filtros-visiveis');
-      btnMostrarFiltros.classList.toggle('active', estaVisivel);
-      btnMostrarFiltros.textContent = estaVisivel ? "Fechar" : "Filtros";
-    });
-
-    // NOVO: Fecha filtros ao clicar em uma categoria no mobile
-    filterContainer.addEventListener('click', function (e) {
-      if (
-        e.target.classList.contains('category-filter') &&
-        window.innerWidth <= 700
-      ) {
-        filterContainer.classList.remove('filtros-visiveis');
-        btnMostrarFiltros.classList.remove('active');
-        btnMostrarFiltros.textContent = "Filtros";
-      }
-    });
-  }
-});
-
-// Função para atualizar o texto do filtro ativo
-function atualizarFiltroAtivoTexto() {
-  const filtroAtivoDiv = document.getElementById('filtroAtivoTexto');
-  const filtroBtn = document.querySelector('.category-filter.active');
-  const nome = filtroBtn ? filtroBtn.textContent : 'All';
-  filtroAtivoDiv.textContent = `Showing results for: ${nome}`;
+function scrollPaginacaoInicio() {
+  const paginacao = document.getElementById('paginacaoProjetos');
+  if (paginacao) paginacao.scrollLeft = 0;
 }
 
-// Chame essa função após atualizar a lista ou mudar o filtro:
-document.addEventListener('DOMContentLoaded', function () {
-  // ... SEU OUTRO JS ...
-
-  // Chame também ao carregar a página e sempre que um filtro for clicado
-  atualizarFiltroAtivoTexto();
-
-  // Exemplo de ajuste no clique:
+document.addEventListener('DOMContentLoaded', function() {
+  // Filtro de categoria
   document.querySelectorAll('.category-filter').forEach(btn => {
-    btn.addEventListener('click', function () {
-      setTimeout(atualizarFiltroAtivoTexto, 100); // Delay para garantir que o botão ativo já mudou
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      categoriaAtiva = this.getAttribute('data-category');
+      paginaAtual = 1;
+      atualizarListaProjetosComPaginacao();
+      scrollPaginacaoInicio();
+      setTimeout(atualizarFiltroAtivoTexto, 100);
     });
   });
+
+  // Busca
+  const searchInput = document.getElementById('projectSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      searchTerm = this.value.toLowerCase().trim();
+      paginaAtual = 1;
+      atualizarListaProjetosComPaginacao();
+      scrollPaginacaoInicio();
+    });
+  }
+
+  atualizarListaProjetosComPaginacao();
+  scrollPaginacaoInicio();
+
+  // Hamburguer
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("show");
+      toggle.setAttribute("aria-expanded", nav.classList.contains("show") ? "true" : "false");
+    });
+  }
+
+  // Lightbox para imagens
+  document.querySelectorAll('.projeto-card').forEach(function(card) {
+    var img = card.querySelector('img');
+    if (img && img.parentElement.tagName.toLowerCase() !== 'a') {
+      var link = document.createElement('a');
+      link.href = img.src;
+      link.setAttribute('data-lightbox', 'projetos');
+      link.setAttribute('data-title', img.alt || '');
+      img.parentElement.insertBefore(link, img);
+      link.appendChild(img);
+    }
+  });
+
+  // Botão lightbox
+  const observer = new MutationObserver(() => {
+    const img = document.querySelector('.lb-image');
+    const caption = document.querySelector('.lb-caption');
+    if (img && caption && !caption.querySelector('.btn-lightbox')) {
+      const imgSrc = img.getAttribute('src');
+      const btn = document.createElement('button');
+      btn.className = 'btn-lightbox';
+      btn.textContent = 'Request budget';
+      btn.onclick = () => irParaOrcamento('', imgSrc);
+      caption.innerHTML = '';
+      caption.appendChild(btn);
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  atualizarFiltroAtivoTexto();
 });
 
+function atualizarListaProjetosComPaginacao() {
+  let cards = Array.from(document.querySelectorAll('.projeto-card'));
+  let cardsFiltrados = (categoriaAtiva === 'todos')
+    ? cards
+    : cards.filter(card => card.getAttribute('data-category') === categoriaAtiva);
 
-  // Função para redirecionar ao orçamento (usada no botão flutuante do lightbox)
-  function irParaOrcamento(nomeProjeto, imagemProjeto) {
-    sessionStorage.setItem('nomeProjeto', nomeProjeto);
-    sessionStorage.setItem('imagemProjeto', imagemProjeto);
-    window.location.href = 'solicitar-orcamento-en.html';
+  if (searchTerm) {
+    cardsFiltrados = cardsFiltrados.filter(card => {
+      const nome = card.querySelector('h3')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('.projeto-desc')?.textContent.toLowerCase() || '';
+      return nome.includes(searchTerm) || desc.includes(searchTerm);
+    });
   }
+
+  const totalPaginas = Math.ceil(cardsFiltrados.length / projetosPorPagina);
+  if (paginaAtual > totalPaginas) paginaAtual = 1;
+  if (paginaAtual < 1) paginaAtual = 1;
+
+  cards.forEach(card => card.style.display = 'none');
+  const inicio = (paginaAtual - 1) * projetosPorPagina;
+  const fim = inicio + projetosPorPagina;
+  cardsFiltrados.slice(inicio, fim).forEach(card => card.style.display = '');
+
+  renderizarPaginacao(totalPaginas);
+}
+
+// PAGINAÇÃO DUPLA - TOP E BOTTOM
+function renderizarPaginacao(totalPaginas) {
+  // Pega todas as barras de paginação (topo e fim)
+  const paginacoes = [
+    document.getElementById('paginacaoProjetos'),
+    document.getElementById('paginacaoProjetos-end')
+  ].filter(Boolean);
+
+  if (!paginacoes.length) return;
+  if (totalPaginas <= 1) {
+    paginacoes.forEach(paginacao => paginacao.innerHTML = '');
+    return;
+  }
+
+  paginacoes.forEach(paginacao => {
+    paginacao.innerHTML = '';
+    const isMobile = window.innerWidth <= 700;
+
+    if (isMobile) {
+      if (totalPaginas <= 5) {
+        // Até 5 páginas, mostra todas
+        for (let i = 1; i <= totalPaginas; i++) {
+          const btn = document.createElement('button');
+          btn.textContent = i;
+          if (i === paginaAtual) btn.classList.add('active');
+          btn.onclick = () => {
+            paginaAtual = i;
+            atualizarListaProjetosComPaginacao();
+          };
+          paginacao.appendChild(btn);
+        }
+      } else {
+        // Mais de 5 páginas, modo resumido
+        if (paginaAtual > 1) {
+          const btnPrev = document.createElement('button');
+          btnPrev.textContent = paginaAtual - 1;
+          btnPrev.onclick = () => {
+            paginaAtual = paginaAtual - 1;
+            atualizarListaProjetosComPaginacao();
+          };
+          paginacao.appendChild(btnPrev);
+        }
+
+        const btnAtual = document.createElement('button');
+        btnAtual.textContent = paginaAtual;
+        btnAtual.classList.add('active');
+        paginacao.appendChild(btnAtual);
+
+        if (paginaAtual < totalPaginas) {
+          const btnNext = document.createElement('button');
+          btnNext.textContent = paginaAtual + 1;
+          btnNext.onclick = () => {
+            paginaAtual = paginaAtual + 1;
+            atualizarListaProjetosComPaginacao();
+          };
+          paginacao.appendChild(btnNext);
+        }
+
+        if (paginaAtual < totalPaginas - 1) {
+          const ellipsis = document.createElement('span');
+          ellipsis.textContent = '...';
+          ellipsis.style.margin = '0 7px';
+          paginacao.appendChild(ellipsis);
+        }
+
+        if (paginaAtual !== totalPaginas && paginaAtual !== totalPaginas - 1) {
+          const btnLast = document.createElement('button');
+          btnLast.textContent = totalPaginas;
+          btnLast.onclick = () => {
+            paginaAtual = totalPaginas;
+            atualizarListaProjetosComPaginacao();
+          };
+          paginacao.appendChild(btnLast);
+        }
+      }
+    } else {
+      // DESKTOP: padrão completo
+      let max = Math.min(6, totalPaginas);
+      for (let i = 1; i <= max; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        if (i === paginaAtual) btn.classList.add('active');
+        btn.onclick = () => {
+          paginaAtual = i;
+          atualizarListaProjetosComPaginacao();
+        };
+        paginacao.appendChild(btn);
+      }
+
+      let extras = [];
+      if (paginaAtual >= 6 && paginaAtual < totalPaginas - 1) {
+        extras.push(paginaAtual + 1);
+      }
+      extras.forEach(i => {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        if (i === paginaAtual) btn.classList.add('active');
+        btn.onclick = () => {
+          paginaAtual = i;
+          atualizarListaProjetosComPaginacao();
+        };
+        paginacao.appendChild(btn);
+      });
+      let lastBtnShown = extras.length > 0 ? extras[extras.length - 1] : max;
+      if (totalPaginas > lastBtnShown + 1) {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '...';
+        ellipsis.style.margin = '0 8px';
+        paginacao.appendChild(ellipsis);
+      }
+      if (totalPaginas > max) {
+        const btnLast = document.createElement('button');
+        btnLast.textContent = totalPaginas;
+        if (paginaAtual === totalPaginas) btnLast.classList.add('active');
+        btnLast.onclick = () => {
+          paginaAtual = totalPaginas;
+          atualizarListaProjetosComPaginacao();
+        };
+        paginacao.appendChild(btnLast);
+      }
+
+      // DESKTOP: Botão Próxima
+      if (paginaAtual < totalPaginas) {
+        const btnNext = document.createElement('button');
+        btnNext.textContent = 'Próxima';
+        btnNext.onclick = () => {
+          paginaAtual++;
+          atualizarListaProjetosComPaginacao();
+        };
+        paginacao.appendChild(btnNext);
+      }
+      // DESKTOP: Botão Anterior
+      if (paginaAtual > 1) {
+        const btnPrev = document.createElement('button');
+        btnPrev.textContent = 'Anterior';
+        btnPrev.onclick = () => {
+          paginaAtual--;
+          atualizarListaProjetosComPaginacao();
+        };
+        paginacao.insertBefore(btnPrev, paginacao.firstChild);
+      }
+    }
+  });
+}
+
+// Texto do filtro ativo (chame sempre após atualizar)
+function atualizarFiltroAtivoTexto() {
+  // Exemplo: document.getElementById('textoFiltroAtivo').textContent = ...
+}
+
+// Botão flutuante do lightbox
+function irParaOrcamento(nomeProjeto, imagemProjeto) {
+  sessionStorage.setItem('nomeProjeto', nomeProjeto);
+  sessionStorage.setItem('imagemProjeto', imagemProjeto);
+  window.location.href = 'solicitar-orcamento-en.html';
+}
 </script>
+
+
 
 <!-- Lightbox2 JS para galeria de imagens -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>

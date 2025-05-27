@@ -93,37 +93,37 @@ body {
   color: #ffd700;
 }
 
-/* Filtros ficam escondidos até abrir */
 .filter-container {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
   width: 100%;
   background: none;
   box-shadow: none;
-  padding: 14px 0 0 0;
-  transition: max-height 0.2s, opacity 0.2s;
-}
-.filter-container.filtros-visiveis {
-  display: flex;
+  padding: 0;
 }
 
 .category-filter {
-  min-width: 120px;
-  padding: 12px 22px;
+  padding: 15px 30px;
   background: transparent;
   border: 2px solid #f0c040;
-  border-radius: 7px;
+  border-radius: 12px;
   cursor: pointer;
   color: #f0c040;
   font-weight: 700;
-  font-size: 1.02rem;
+  font-size: 1.16rem;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   margin: 0;
   box-shadow: 0 1px 6px #0001;
+  min-width: 140px;
+  min-height: 52px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .category-filter.active,
 .category-filter:hover {
   background-color: #f0c040;
@@ -131,6 +131,8 @@ body {
   box-shadow: 0 2px 8px #f0c04033;
   transform: translateY(-2px);
 }
+
+
 
 
 /*==== pagina =====*/
@@ -315,51 +317,6 @@ body {
   .btn-mostrar-filtros:active {
     background: #14321d;
     color: #ffd700;
-  }
-  .filter-container {
-    display: none;
-    flex-direction: column; /* Empilha os botões */
-    gap: 9px;
-    width: 100%;
-    padding: 12px 0 0 0;
-    box-sizing: border-box;
-    margin-bottom: 6px;
-    background: none;
-  }
-  .filter-container.filtros-visiveis {
-    display: flex;
-  }
-  .category-filter {
-    width: 100%;
-    padding: 11px 0;
-    background: transparent;
-    border: 2px solid #ffd700;
-    border-radius: 8px;
-    cursor: pointer;
-    color: #ffd700;
-    font-weight: 700;
-    font-size: 1rem;
-    transition: background 0.2s, color 0.2s;
-    margin: 0;
-    text-align: center;
-  }
-  .category-filter.active,
-  .category-filter:focus,
-  .category-filter:hover {
-    background-color: #ffd700;
-    color: #14321d;
-    box-shadow: 0 2px 8px #f0c04033;
-    transform: translateY(-2px);
-  }
-
-  .filtro-ativo-texto {
-  margin-top: 10px;
-  margin-bottom: 26px;
-  font-size: 1.06rem;
-  color: #ffd700;
-  font-weight: 600;
-  text-align: center;
-  letter-spacing: 0.4px;
   }
 
   .btn-lightbox {
