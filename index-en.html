@@ -342,12 +342,17 @@
   </script>
   <script src="./js/script.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
     AOS.init({
-      duration: 1000,  // animação mais lenta
+      duration: 800,  // animação mais lenta
       easing: 'ease',  // animação suave
       once: false      // anima cada vez que aparece na tela
     });
-  </script>
+
+    // Atualiza o AOS após inicialização
+    AOS.refresh();
+  });
+</script>
 </body>
 </html>
