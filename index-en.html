@@ -1,151 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Wall & Design - Custom Furniture with quality and elegance.">
   <title>Wall & Design</title>
   <link rel="stylesheet" href="./css/variables.css">
-  <link rel="stylesheet" href="./css/form-enhancements.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/form-enhancements.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,600,400|Inter:400,600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      background: var(--verde-escuro, #0f2e20);
+    }
+    .wave-divider svg {
+      display: block;
+      width: 100vw;
+      height: 80px;
+    }
+    .wave-divider-invert svg {
+      transform: rotate(180deg);
+      width: 100vw;
+      height: 90px;
+    }
+    .wave-divider, .wave-divider-invert {
+      overflow: hidden;
+      line-height: 0;
+      position: relative;
+      z-index: 2;
+      margin-bottom: -6px;
+      margin-top: -6px;
+    }
+  </style>
 </head>
 <body>
-
-<!-- Header -->
-<header>
-  <div class="header-container">
-    <div class="logo">
-      <a href="index-en.html">
-        <img src="./img/logosimples.png" alt="Wall & Design">
-      </a>
-    </div>
-
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-
-    <nav>
-      <ul class="menu">
-        <li><a href="index-en.html" class="active">Home</a></li>
-        <li><a href="sobre-en.html">About</a></li>
-        <li><a href="projetos-en.html">Projects</a></li>
-        <li><a href="contatos-en.html">Contact</a></li>
-        <!-- Budget button (mobile) -->
-        <li class="mobile-only">
-          <a href="solicitar-orcamento-en.htm" class="btn-orcamento">Request a Quote</a>
-        </li>
-        <!-- Language flags (mobile) 
-        <li class="language-switcher mobile-only">
-          <button onclick="trocarIdioma('pt')" aria-label="Portuguese">
-            <img src="./img/brazil-icon-64.png" alt="PT">
-          </button>
-          <button onclick="trocarIdioma('en')" aria-label="English">
-            <img src="./img/united-icon-64.png" alt="EN">
-          </button>
-        </li> -->
-      </ul>
-    </nav>
-
-    <!-- Budget button and flags (desktop) -->
-    <div class="btn-language-group desktop-only">
-      <a href="./solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
-      <!--
-      <div class="language-switcher">
-        <button onclick="trocarIdioma('pt')" aria-label="Portuguese">
-          <img src="./img/brazil-icon-64.png" alt="PT">
-        </button>
-        <button onclick="trocarIdioma('en')" aria-label="English">
-          <img src="./img/united-icon-64.png" alt="EN">
-        </button>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="index-en.html">
+          <img src="./img/logosimples.png" alt="Wall & Design">
+        </a>
       </div>
-    </div>-->
-  </div>
-</header>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+      <nav>
+        <ul class="menu">
+          <li><a href="index-en.html" class="active">Home</a></li>
+          <li><a href="sobre-en.html">About</a></li>
+          <li><a href="projetos-en.html">Projects</a></li>
+          <li><a href="contatos-en.html">Contact</a></li>
+          <li class="mobile-only">
+            <a href="solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="btn-language-group desktop-only">
+        <a href="./solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
+      </div>
+    </div>
+  </header>
 
-<!-- Hero Section -->
-  <section class="hero" id="inicio">
+  <!-- HERO -->
+  <section class="hero" id="inicio" data-aos="fade-up" data-aos-delay="150">
     <div class="hero-background"></div>
     <div class="hero-content">
-    <h1>Custom Furniture Solutions</h2>
-    <p>We shape your ideas into functional design</p>
-    <a href="./projetos-en.html" class="btn-hero">View Projects</a>
+      <h1>Custom Furniture Solutions</h1>
+      <p>We shape your ideas into functional design</p>
+      <a href="#about" class="btn-hero">Learn More</a>
     </div>
-    <button class="hero-arrow hero-arrow-left" aria-label="Anterior">
+    <button class="hero-arrow hero-arrow-left" aria-label="Previous">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <line x1="19" y1="12" x2="5" y2="12" />
-        <polyline points="12 19 5 12 12 5" />
+        <line x1="19" y1="12" x2="5" y2="12" stroke-width="2.5"/>
+        <polyline points="12 19 5 12 12 5" stroke-width="2.5" fill="none"/>
       </svg>
     </button>
-    <button class="hero-arrow hero-arrow-right" aria-label="Próximo">
+    <button class="hero-arrow hero-arrow-right" aria-label="Next">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <line x1="5" y1="12" x2="19" y2="12" />
-        <polyline points="12 5 19 12 12 19" />
+        <line x1="5" y1="12" x2="19" y2="12" stroke-width="2.5"/>
+        <polyline points="12 5 19 12 12 19" stroke-width="2.5" fill="none"/>
       </svg>
     </button>
   </section>
 
-<!-- About the Company -->
-<section class="sobre" id="about">
-  <div class="container">
-    <h2>About Wall & Design</h2>
-    <p>Wall & Design specializes in creating high-quality custom furniture, combining innovative design and functionality. With personalized service and cutting-edge technology, we transform each space into something unique.</p>
-    <a href="./sobre-en.html" class="btn-hero">Learn More</a>
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z" fill="#091a13"/>
+    </svg>
   </div>
-</section>
 
-<!-- Gallery of Environments -->
-<section class="ambientes">
-  <div class="ambiente">
-    <img src="img/escritorio1.jpg" alt="Modern Office">
-    <h3>Corporate Projects</h3>
+  <!-- SOBRE -->
+  <section class="about-video-row" id="about" data-aos="fade-right" data-aos-delay="250">
+    <div class="container about-flex">
+      <div class="about-content">
+        <h2>About Wall & Design</h2>
+        <p>
+          <strong>Wall & Design</strong> was born from the dream of transforming environments into true homes.<br>
+          Founded by design enthusiasts, our journey began by combining meticulous planning with the sensibility of craftsmanship, always prioritizing quality, innovation, and a close relationship with each client.<br><br>
+          Our team brings years of experience in the custom furniture market, working with ethics, transparency, and total commitment to every project. We deliver tailor-made solutions and accompany our clients from the first design sketch to flawless installation—ensuring practicality, sophistication, and exceptional functionality in every detail.<br><br>
+          We believe every client is unique. That's why we personalize every project to match your lifestyle and your family’s needs, using only certified materials, trusted partners, and the latest technology in 3D design.<br><br>
+          With Wall & Design, you experience attentive service, creative solutions, impeccable finishes, and the certainty of a space crafted just for you.
+        </p>
+        <a href="./sobre-en.html" class="btn-hero">More About Us</a>
+      </div>
+      <div class="about-video-box">
+        <video src="media/wall-design-presentation.mp4" controls autoplay muted loop poster="img/hero-poster.jpg"></video>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider wave-divider-invert" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+      <path d="M0,90 C480,0 960,90 1440,0 L1440,90 L0,90 Z" fill="#1d4132"/>
+    </svg>
   </div>
-  <div class="ambiente">
-    <img src="img/biblioteca.jpg" alt="Custom Library">
-    <h3>Cozy Spaces</h3>
+
+  <!-- BENEFITS -->
+  <section class="benefits-section" data-aos="fade-left" data-aos-delay="350">
+    <div class="container">
+      <h2>Why Choose Wall & Design?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="400"> <!-- anima um por vez -->
+          <h3>Customized Design</h3>
+          <p>Tailored solutions for every client and space.</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+          <h3>High Quality</h3>
+          <p>Premium materials and finishing in every project.</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="800">
+          <h3>End-to-End Service</h3>
+          <p>From initial concept to final installation.</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="1000">
+          <h3>Customer Satisfaction</h3>
+          <p>Personalized support and commitment to results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z" fill="#07130e"/>
+    </svg>
   </div>
-  <div class="ambiente">
-    <img src="img/escritorio2.jpg" alt="Clean Home Office">
-    <h3>Smart Home Office</h3>
+
+  <!-- PROCESSO -->
+  <section class="process-section" data-aos="fade-right" data-aos-delay="450">
+    <div class="container">
+      <h2 class="process-title">How It Works</h2>
+      <div class="process-steps">
+        <div class="step" data-aos="fade-left" data-aos-delay="550">
+          <div class="step-icon">1</div>
+          <div class="step-content">
+            <h3>Consultation</h3>
+            <p>Tell us about your needs and dreams for your space.</p>
+          </div>
+        </div>
+        <div class="step" data-aos="fade-left" data-aos-delay="700">
+          <div class="step-icon">2</div>
+          <div class="step-content">
+            <h3>3D Project</h3>
+            <p>We create a detailed 3D project for your approval.</p>
+          </div>
+        </div>
+        <div class="step" data-aos="fade-left" data-aos-delay="850">
+          <div class="step-icon">3</div>
+          <div class="step-content">
+            <h3>Production</h3>
+            <p>Our team builds your custom furniture with the best materials.</p>
+          </div>
+        </div>
+        <div class="step" data-aos="fade-left" data-aos-delay="1000">
+          <div class="step-icon">4</div>
+          <div class="step-content">
+            <h3>Installation</h3>
+            <p>Fast and professional installation, respecting your schedule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider wave-divider-invert" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+      <path d="M0,90 C480,0 960,90 1440,0 L1440,90 L0,90 Z" fill="#142f23"/>
+    </svg>
   </div>
-</section>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 Wall & Design. All rights reserved.</p>
-    <p>
-      <a href="./sobre-en.html">About</a> | 
-      <a href="contatos-en.html">Contact</a>
-    </p>
+  <!-- VALUES -->
+  <section class="values-section" data-aos="fade-left" data-aos-delay="550">
+    <div class="container">
+      <h2 class="values-title">Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card" data-aos="fade-right" data-aos-delay="600"><h3>Integrity</h3><p>Ethical service and transparency at every step.</p></div>
+        <div class="value-card" data-aos="fade-right" data-aos-delay="800"><h3>Excellence</h3><p>Top quality and attention to detail in every project.</p></div>
+        <div class="value-card" data-aos="fade-right" data-aos-delay="1000"><h3>Commitment</h3><p>We deliver on time and respect your expectations.</p></div>
+        <div class="value-card" data-aos="fade-right" data-aos-delay="1200"><h3>Innovation</h3><p>Always up to date with the latest trends and solutions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z" fill="#091a13"/>
+    </svg>
   </div>
-</footer>
 
-<script>
-    const usuarioLogado = localStorage.getItem("usuarioLogado") === "true";
-    const painelLoginLink = document.getElementById("painelLoginLink");
-    const footerLoginLink = document.getElementById("footerLoginLink");
-    if (usuarioLogado && painelLoginLink) {
-      painelLoginLink.href = "painel.html";
-      painelLoginLink.innerText = "Dashboard";
-      if (footerLoginLink) {
-        footerLoginLink.href = "painel.html";
-        footerLoginLink.innerText = "Dashboard";
-      }
-    } else if (painelLoginLink) {
-      painelLoginLink.href = "login.html";
-      painelLoginLink.innerText = "Login";
-      if (footerLoginLink) {
-        footerLoginLink.href = "login.html";
-        footerLoginLink.innerText = "Login";
-      }
-    }
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" data-aos="fade-right" data-aos-delay="650">
+    <div class="container">
+      <h2 class="testimonial-title">What Our Clients Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="700">
+          <span class="quote">&ldquo;</span>
+          Wall & Design exceeded our expectations. The custom furniture fit perfectly and the finish is spectacular!
+          <span class="client">— Ana S.</span>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="900">
+          <span class="quote">&ldquo;</span>
+          Excellent service from the first meeting to the final installation. Highly recommend!
+          <span class="client">— Lucas R.</span>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="1100">
+          <span class="quote">&ldquo;</span>
+          Great design team, unique solutions and high-quality materials. We loved the result!
+          <span class="client">— Carla M.</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function trocarIdioma(lang) {
-      if (lang === "en") window.location.href = "index-en.html";
-      else window.location.href = "index.html";
-    }
-    window.trocarIdioma = trocarIdioma;
-</script>
+  <div class="wave-divider wave-divider-invert" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+      <path d="M0,90 C480,0 960,90 1440,0 L1440,90 L0,90 Z" fill="#1d4132"/>
+    </svg>
+  </div>
 
-<!-- MAIN SCRIPT: -->
-<script src="./js/script.js"></script>
+  <!-- AMBIENTES -->
+  <section class="ambientes" data-aos="fade-left" data-aos-delay="750">
+    <div class="ambiente-card" data-aos="fade-up" data-aos-delay="800">
+      <div class="ambiente-img">
+        <img src="img/escritorio1.jpg" alt="Modern Office">
+        <div class="ambiente-title">Corporate Projects</div>
+      </div>
+    </div>
+    <div class="ambiente-card" data-aos="fade-up" data-aos-delay="900">
+      <div class="ambiente-img">
+        <img src="img/biblioteca.jpg" alt="Custom Library">
+        <div class="ambiente-title">Cozy Spaces</div>
+      </div>
+    </div>
+    <div class="ambiente-card" data-aos="fade-up" data-aos-delay="1000">
+      <div class="ambiente-img">
+        <img src="img/escritorio2.jpg" alt="Clean Home Office">
+        <div class="ambiente-title">Smart Home Office</div>
+      </div>
+    </div>
+  </section>
 
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z" fill="#07130e"/>
+    </svg>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq-section" data-aos="fade-right" data-aos-delay="850">
+    <div class="container">
+      <h2 class="faq-title">FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="900">
+          <button class="faq-question">How long does a custom project take?</button>
+          <div class="faq-answer">It usually takes 30-45 days from approval to installation, depending on complexity and schedule.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="1100">
+          <button class="faq-question">Can I follow the project step by step?</button>
+          <div class="faq-answer">Yes! We send regular updates and are always available for questions.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="1300">
+          <button class="faq-question">Do you use premium materials?</button>
+          <div class="faq-answer">Absolutely. We work only with selected suppliers and top-tier materials.</div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="1500">
+          <button class="faq-question">Is installation included?</button>
+          <div class="faq-answer">Yes, installation and final touch-ups are part of our service.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider wave-divider-invert" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+      <path d="M0,90 C480,0 960,90 1440,0 L1440,90 L0,90 Z" fill="#142f23"/>
+    </svg>
+  </div>
+
+  <!-- CTA EXTRA -->
+  <section class="cta-extra" data-aos="fade-left" data-aos-delay="950">
+    <div class="container">
+      <h2>Book a Visit With Our Designers</h2>
+      <p>Bring your project to life with a free in-person or online consultation.</p>
+      <a href="contatos-en.html" class="btn-hero">Contact Us Now</a>
+    </div>
+  </section>
+
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z" fill="#091a13"/>
+    </svg>
+  </div>
+
+  <!-- CALL TO ACTION -->
+  <section class="call-to-action" data-aos="fade-up" data-aos-delay="1050">
+    <div class="container">
+      <h2>Ready for your dream project?</h2>
+      <a href="solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote Now</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Wall & Design. All rights reserved.</p>
+      <p>
+        <a href="./sobre-en.html">About</a> | 
+        <a href="contatos-en.html">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS SCRIPTS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const item = btn.parentElement;
+          item.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+  <script src="./js/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1600,  // animação mais lenta
+      easing: 'ease',  // animação suave
+      once: false      // anima cada vez que aparece na tela
+    });
+  </script>
 </body>
 </html>
