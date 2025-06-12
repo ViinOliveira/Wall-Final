@@ -9,6 +9,7 @@
 <link href="./css/form-enhancements.css" rel="stylesheet"/>
 <link href="./css/style.css" rel="stylesheet"/>
 <link href="./css/projetos.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Montserrat:wght@600&amp;display=swap" rel="stylesheet"/>
 <!-- Add lightbox CSS for project images -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet"/>
@@ -23,48 +24,50 @@
 <body>
 <!-- Header -->
 <header>
-<div class="header-container">
-<div class="logo">
-<a href="index-en.html">
-<img alt="Wall &amp; Design" src="./img/logosimples.png"/>
-</a>
-</div>
-<button aria-expanded="false" aria-label="Open menu" class="menu-toggle">☰</button>
-<nav>
-<ul class="menu">
-<li><a href="index-en.html">Home</a></li>
-<li><a href="sobre-en.html">About</a></li>
-<li><a href="projetos-en.html">Projects</a></li>
-<li><a class="active" href="contatos-en.html">Contact</a></li>
-<!-- Quote button (mobile) -->
-<li class="mobile-only">
-<a class="btn-orcamento" href="./solicitar-orcamento-en.html">Request a Quote</a>
-</li>
-<!-- Language switcher (mobile) -->
-<!-- <li class="language-switcher mobile-only">
-<button aria-label="Portuguese" onclick="trocarIdioma('pt')">
-<img alt="PT" src="./img/brazil-icon-64.png"/>
-</button>
-<button aria-label="English" onclick="trocarIdioma('en')">
-<img alt="EN" src="./img/united-icon-64.png"/>
-</button>
-</li>-->
-</ul>
-</nav> 
-<div class="btn-language-group desktop-only">
-<a class="btn-orcamento" href="./solicitar-orcamento-en.html">Request a Quote</a>
-<!-- Language switcher (desktop)
-<div class="language-switcher">
-<button aria-label="Portuguese" onclick="trocarIdioma('pt')">
-<img alt="PT" src="./img/brazil-icon-64.png"/>
-</button>
-<button aria-label="English" onclick="trocarIdioma('en')">
-<img alt="EN" src="./img/united-icon-64.png"/>
-</button>
-</div>
-</div>-->
-</div>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index-en.html">
+        <img src="./img/logosimples.png" alt="Wall & Design">
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="index-en.html" class="active">Home</a></li>
+        <li><a href="sobre-en.html">About</a></li>
+        <li><a href="projetos-en.html">Projects</a></li>
+        <li><a href="contatos-en.html">Contact</a></li>
+        <li class="mobile-only">
+          <a href="solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
+        </li>
+        <li class="mobile-only instagram-mobile">
+          <a href="https://www.instagram.com/itswallndesign?igsh=eXVka3FlMzR0Y3Rx" 
+            class="instagram-link" 
+            target="_blank" 
+            aria-label="Visit our Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Desktop -->
+    <div class="btn-language-group desktop-only">
+      <div class="quote-social">
+        <a href="https://www.instagram.com/itswallndesign?igsh=eXVka3FlMzR0Y3Rx" 
+          class="instagram-link" 
+          target="_blank" 
+          aria-label="Visit our Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="./solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
+      </div>
+    </div>
+  </div>
 </header>
+
 <main>
 <section class="projetos-hero-central">
 <h1 class="titulo-centralizado">Change to Projects to get inspired by</h1>

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/form-enhancements.css"/>
   <link rel="stylesheet" href="./css/style.css"/>
   <link rel="stylesheet" href="./css/contatos.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,41 +21,41 @@
         <img src="./img/logosimples.png" alt="Wall & Design">
       </a>
     </div>
+
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+
     <nav>
       <ul class="menu">
-        <li><a href="index-en.html">Home</a></li>
+        <li><a href="index-en.html" class="active">Home</a></li>
         <li><a href="sobre-en.html">About</a></li>
         <li><a href="projetos-en.html">Projects</a></li>
-        <li><a href="contatos-en.html" class="active">Contact</a></li>
-        <!-- Quote button (mobile) -->
+        <li><a href="contatos-en.html">Contact</a></li>
         <li class="mobile-only">
-          <a href="./solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
+          <a href="solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
         </li>
-        <!-- Language switcher (mobile) 
-        <li class="language-switcher mobile-only">
-          <button onclick="trocarIdioma('pt')" aria-label="Portuguese">
-            <img src="./img/brazil-icon-64.png" alt="PT">
-          </button>
-          <button onclick="trocarIdioma('en')" aria-label="English">
-            <img src="./img/united-icon-64.png" alt="EN">
-          </button>
-        </li>-->
+        <li class="mobile-only instagram-mobile">
+          <a href="https://www.instagram.com/itswallndesign?igsh=eXVka3FlMzR0Y3Rx" 
+            class="instagram-link" 
+            target="_blank" 
+            aria-label="Visit our Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
       </ul>
     </nav>
-    <!-- Quote button & flags (desktop) -->
+
+    <!-- Desktop -->
     <div class="btn-language-group desktop-only">
-      <a href="./solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
-      <!--
-      <div class="language-switcher">
-        <button onclick="trocarIdioma('pt')" aria-label="Portuguese">
-          <img src="./img/brazil-icon-64.png" alt="PT">
-        </button>
-        <button onclick="trocarIdioma('en')" aria-label="English">
-          <img src="./img/united-icon-64.png" alt="EN">
-        </button>
+      <div class="quote-social">
+        <a href="https://www.instagram.com/itswallndesign?igsh=eXVka3FlMzR0Y3Rx" 
+          class="instagram-link" 
+          target="_blank" 
+          aria-label="Visit our Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="./solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
       </div>
-    </div>-->
+    </div>
   </div>
 </header>
 

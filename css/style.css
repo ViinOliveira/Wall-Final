@@ -190,6 +190,65 @@ nav {
   .ambientes { flex-direction: column; gap: 24px; padding: 40px 16px;}
 }
 
+/* Container do botão + Instagram (desktop) */
+.quote-social {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Ícone Instagram (desktop) */
+.instagram-link {
+  font-size: 26px;
+  color: #f1c40f;
+  transition: transform 0.3s ease;
+}
+
+.instagram-link:hover {
+  transform: scale(1.1);
+}
+
+/* Versão mobile */
+.quote-social-mobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.instagram-mobile {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.instagram-mobile .instagram-link {
+  display: inline-block;
+  font-size: 28px;
+  color: #f1c40f;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .quote-social-mobile {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .quote-social-mobile {
+    display: none;
+  }
+}
+
+
+
+
 /* =========================================
    HERO MOBILE - 100% IMAGEM, TÍTULO GRANDE, SEM FUNDO
 ========================================= */

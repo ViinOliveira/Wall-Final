@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/form-enhancements.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,600,400|Inter:400,600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       background: var(--verde-escuro, #0f2e20);
@@ -35,30 +36,51 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <div class="logo">
-        <a href="index-en.html">
-          <img src="./img/logosimples.png" alt="Wall & Design">
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index-en.html">
+        <img src="./img/logosimples.png" alt="Wall & Design">
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="index-en.html" class="active">Home</a></li>
+        <li><a href="sobre-en.html">About</a></li>
+        <li><a href="projetos-en.html">Projects</a></li>
+        <li><a href="contatos-en.html">Contact</a></li>
+        <li class="mobile-only">
+          <a href="solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
+        </li>
+        <li class="mobile-only instagram-mobile">
+          <a href="https://www.instagram.com/itswallndesign?igsh=eXVka3FlMzR0Y3Rx" 
+            class="instagram-link" 
+            target="_blank" 
+            aria-label="Visit our Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Desktop -->
+    <div class="btn-language-group desktop-only">
+      <div class="quote-social">
+        <a href="https://www.instagram.com/itswallndesign?igsh=eXVka3FlMzR0Y3Rx" 
+          class="instagram-link" 
+          target="_blank" 
+          aria-label="Visit our Instagram">
+          <i class="fab fa-instagram"></i>
         </a>
-      </div>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-      <nav>
-        <ul class="menu">
-          <li><a href="index-en.html" class="active">Home</a></li>
-          <li><a href="sobre-en.html">About</a></li>
-          <li><a href="projetos-en.html">Projects</a></li>
-          <li><a href="contatos-en.html">Contact</a></li>
-          <li class="mobile-only">
-            <a href="solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="btn-language-group desktop-only">
         <a href="./solicitar-orcamento-en.html" class="btn-orcamento">Request a Quote</a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- HERO -->
   <section class="hero" id="inicio" data-aos="fade-up" data-aos-delay="150">
